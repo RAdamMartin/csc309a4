@@ -67,6 +67,8 @@
 	?>
 	</div>
 	
+	<canvas></canvas>
+
 <?php 
 	
 	echo form_textarea('conversation');

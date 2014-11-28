@@ -67,7 +67,10 @@
 	?>
 	</div>
 	
-	<canvas></canvas>
+	<canvas id="board" width="700" height="600" style="border:5px solid #FFFF00;">
+		Your browser is not supported.
+	</canvas>
+	<br>
 
 <?php 
 	

@@ -11,10 +11,19 @@
 		var user = "<?= $user->login ?>";
 		var status = "<?= $status ?>";
 
+		log.console("painting");
+
 		var bgrd = document.getElementById("frame");
-		var ctx = bgrd.getContext("2d");
-		ctx.fillStyle = "#FFFF00";
-		ctx.fillRect(0, 0, bgrd.width, bgrd.height);		
+		var bctx = bgrd.getContext("2d");
+		var moves = document.getElementById("plays");
+		var mctx = moves.getContext("2d");
+
+		bctx.fillStyle = "#FFFF00";
+		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
+
+		mctx.fillStyle
+
+
 		$(function(){
 			$('body').everyTime(2000,function(){
 					if (status == 'waiting') {

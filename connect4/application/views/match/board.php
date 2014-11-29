@@ -117,9 +117,9 @@
 	
 	echo form_open();
 	echo form_input('msg');
-	echo form_submit('Send','Send');
-	echo form_submit('Send','Send');
-	echo form_submit('Send','Send');
+	echo form_submit('Send','1');
+	echo form_submit('Send','2');
+	echo form_submit('Send','3');
 
 	echo form_close();
 	

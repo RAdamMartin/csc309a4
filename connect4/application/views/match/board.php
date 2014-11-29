@@ -115,7 +115,7 @@
 	echo form_textarea('conversation');
 	
 	echo form_open();
-	echo form_input('msg');
+	echo '<input id="msg" type="text" name="msg" value=""  />'
 	echo form_submit('Send','Send');
 
 	echo form_close();
@@ -127,7 +127,7 @@
 
 <script>
 function setCol(str){
-	document.getElementByName('msg').innerHTML = '1';
+	document.getElementById('msg').innerHTML = '1';
 }
 </script>
 

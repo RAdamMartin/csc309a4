@@ -68,12 +68,8 @@
 	?>
 	</div>
 	<div class="gameArea" style="position:relative; width:710px; height:610px">
-		<canvas class="board" id="frame" width="700" height="600" style=
-											"z-index: 1;
-											
-											border:5px solid #FFFF00;"></canvas>
-		<canvas class="board" id="plays" width="700" height="600" style=
-											"z-index: 2;"></canvas>	
+		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;"></canvas>
+		<canvas class="board" id="plays" style="z-index: 2;"></canvas>	
 	</div>
 
 	<script>

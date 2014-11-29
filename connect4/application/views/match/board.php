@@ -87,7 +87,7 @@
 		for (var i = 0; i < 7; i++){
 			for (var j=0; j < 6; j++){
 				mctx.beginPath();
-				mctx.arc(i*w + w/2, j*h + h/2, 90, 2*Math.PI, false);
+				mctx.arc(i*w + w/2, j*h + h/2, 45, 2*Math.PI, false);
 				mctx.fill();
 			}
 		}

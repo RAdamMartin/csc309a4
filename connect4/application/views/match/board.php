@@ -67,7 +67,7 @@
 			echo "Wating on " . $otherUser->login;
 	?>
 	</div>
-	<div class="gameArea" style="position:relative; width:710px; height:610px">
+	<div class="gameArea" style="position:relative; width:710px; height:610px" left="5%">
 		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;"></canvas>
 		<canvas class="board" id="plays" style="z-index: 2;"></canvas>	
 	</div>

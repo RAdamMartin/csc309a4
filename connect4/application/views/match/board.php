@@ -61,7 +61,7 @@
 		var status = "<?= $status ?>";
 		var side = "<?= $side ?>";
 		var other = (side == 1) ? 2 : 1;
-		var col = 3;
+		var col = -1;
 		var colour1 = "red";
 		var colour2 = "blue";
 		var game = {turn:1, 

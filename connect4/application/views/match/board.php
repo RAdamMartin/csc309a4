@@ -91,7 +91,7 @@
 				var y = j*h + h/2;
 				console.log("Drawing at " + x + "," + y);
 				mctx.arc(x, y, 45, 2*Math.PI, false);
-				mctx.fillStyle = "#FF00FF";
+				mctx.fillStyle = "white";
 				mctx.fill();
 			    mctx.lineWidth = 2;
 			    mctx.strokeStyle = '#FFFF00';

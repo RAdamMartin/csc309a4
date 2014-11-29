@@ -11,6 +11,10 @@
 		var otherUser = "<?= $otherUser->login ?>";
 		var user = "<?= $user->login ?>";
 		var status = "<?= $status ?>";
+		var side = "<?= $side ?>";
+		var col = 3;
+		var colour1 = "red";
+		var colour2 = "blue";
 		var game = {turn:1, 
 					board:
 					[[0,0,0,0,0,0,0],
@@ -42,6 +46,8 @@
 							var msg = data.message;
 							if (msg.length > 0)
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
+								setPlay(int(msg));
+								drawPlays();
 						}
 					});
 					var url = "<?= base_url() ?>board/getMove";
@@ -116,39 +122,63 @@
 		bctx.fillStyle = "#FFFF00";
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 
-		var w = 110;
-		var h = 110;
-		var i,j;
-		for (i = 0; i < 7; i++){
-			for (j=0; j < 6; j++){
-				mctx.beginPath();
-				var x = i*w + w/2;
-				var y = j*h + h/2;
-				console.log("Drawing at " + x + "," + y);
-				mctx.arc(x, y, 50, 2*Math.PI, false);
-				mctx.fillStyle = "white";
-				mctx.fill();
-			    mctx.lineWidth = 2;
-			    mctx.strokeStyle = '#FFFF00';
-			    mctx.stroke();				
+		function drawPlays(){
+			var w = 110;
+			var h = 110;
+			var i,j;
+			for (i = 0; i < 7; i++){
+				for (j=0; j < 6; j++){
+					mctx.beginPath();
+					var x = i*w + w/2;
+					var y = j*h + h/2;
+					console.log("Drawing at " + x + "," + y);
+					mctx.arc(x, y, 50, 2*Math.PI, false);
+					if (game.board[j][i] == 0){
+						mctx.fillStyle = "white";
+					} else if (game.board[j][i] == 1){
+						mctx.fillStyle = colour1;
+					} else {
+						mctx.fillStyle = colour2;
+					}
+					mctx.fill();
+				    mctx.lineWidth = 2;
+				    mctx.strokeStyle = '#FFFF00';
+				    mctx.stroke();				
+				}
 			}
 		}
-		//mctx.fillStyle
+
+		function setPlay(str){
+			if (int(str) < 7){
+				if (game.turn == 1){
+					game.turn = 2;
+				} else {
+					game.turn = 1;
+				}
+				for (i=6; i >= 0; i--){
+					if (game.board[i][int(str)] == 0){
+						game.board[i][int(str)] = 
+					}
+				}
+			}
+		}
+		drawPlays();
 	</script>
 
 	<br>
 
+<button onclick="setCol('0')">SELECT PLAY</button>
 <button onclick="setCol('1')">SELECT PLAY</button>
 <button onclick="setCol('2')">SELECT PLAY</button>
 <button onclick="setCol('3')">SELECT PLAY</button>
 <button onclick="setCol('4')">SELECT PLAY</button>
 <button onclick="setCol('5')">SELECT PLAY</button>
 <button onclick="setCol('6')">SELECT PLAY</button>
-<button onclick="setCol('7')">SELECT PLAY</button>
 
 <script>
 function setCol (str) {
-  $('#msg').val(str);
+	col = int(str);
+  	$('#msg').val(str);
 }
 </script>
 

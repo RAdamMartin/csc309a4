@@ -94,7 +94,7 @@
 							var msg = data.message;
 							if (msg.length > 0){
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
-								setPlay(int(msg));
+								setPlay(parseInt(msg));
 								drawPlays();
 							}
 						}
@@ -174,10 +174,11 @@
 			}
 		}
 		drawPlays();
-function setCol (str) {
-	col = int(str);
-  	$('#msg').val(str);
-}
+
+		function setCol (str) {
+			col = parseInt(str);
+		  	$('#msg').val(str);
+		}
 </script>
 
 </body>

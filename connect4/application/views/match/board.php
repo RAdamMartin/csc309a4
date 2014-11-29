@@ -96,7 +96,6 @@
 								console.log("Received: " + msg);
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
 								setPlay(parseInt(msg));
-								drawPlays();
 							}
 						}
 					});
@@ -157,6 +156,7 @@
 		}
 
 		function setPlay(play){
+			console.log("Setting " + play);
 			if (play < 7 && play >= 0){
 				if (game.turn == 1){
 					game.turn = 2;
@@ -174,6 +174,7 @@
 					}
 				}
 			}
+			drawPlays();
 		}
 		drawPlays();
 

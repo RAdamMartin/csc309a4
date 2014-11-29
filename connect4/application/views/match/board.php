@@ -101,20 +101,12 @@
 							}
 						}
 					});
-					var url = "<?= base_url() ?>board/getMove";
-					$.getJSON(url, function (data,text,jqXHR){
-						if (data && data.status=='success') {
-							var conversation = $('[name=conversation]').val();
-							var msg = data.message;
-							if (msg != null && msg.length > 0)
-								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
-						}
-					});
 					console.log("looping");
 					drawPlays();	
 			});
 
 			$('form').submit(function(){
+				setPlay(parseInt(msg), side);
 				var arguments = $(this).serialize();
 				var url = "<?= base_url() ?>board/postMsg";
 				$.post(url,arguments, function (data,textStatus,jqXHR){

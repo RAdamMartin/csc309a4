@@ -84,7 +84,6 @@
 		var w = 100;
 		var h = 100;
 		mctx.fillStyle = "#FF00FF";
-		mctx.fillRect(0, 0, bgrd.width/2, bgrd.height/2);
 		for (var i = 0; i < 7; i++){
 			for (var j=0; j < 6; j++){
 				mctx.beginPath();

@@ -23,7 +23,7 @@
  	color: blue;
  }
 
- canvas {
+ .board {
   position: absolute;
   top: 10%;
   left: 2%;

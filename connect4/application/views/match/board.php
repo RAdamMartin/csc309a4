@@ -108,7 +108,7 @@
 			$('form').submit(function(event){
 				if (game.turn == side){
 					var msg = $('[name=msg]').val();
-					$('[name=msg]').val("");
+					$('[name=msg]').val("select play");
 					setPlay(parseInt(msg), side);
 					var arguments = $(this).serialize();
 					var url = "<?= base_url() ?>board/postMsg";

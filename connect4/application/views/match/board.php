@@ -92,8 +92,8 @@
 						if (data && data.status=='success') {
 							var conversation = $('[name=conversation]').val();
 							var msg = data.message;
+							console.log("Received: " + msg);
 							if (msg.length > 0){
-								console.log("Received: " + msg);
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
 								setPlay(parseInt(msg));
 								drawPlays();
@@ -114,7 +114,7 @@
 			$('form').submit(function(){
 				var arguments = $(this).serialize();
 				var url = "<?= base_url() ?>board/postMsg";
-				console.log("Sending: " + msg);
+				console.log("Sending: " + msg.val());
 				$.post(url,arguments, function (data,textStatus,jqXHR){
 						var conversation = $('[name=conversation]').val();
 						var msg = $('[name=msg]').val();

@@ -187,6 +187,7 @@
 		function setCol (str) {
 			col = parseInt(str);
 		  	$('#msg').val(str);
+			drawPlays();
 		}
 </script>
 

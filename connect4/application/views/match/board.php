@@ -93,6 +93,7 @@
 							var conversation = $('[name=conversation]').val();
 							var msg = data.message;
 							if (msg.length > 0){
+								console.log("Received: " + msg);
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
 								setPlay(parseInt(msg));
 								drawPlays();
@@ -113,6 +114,7 @@
 			$('form').submit(function(){
 				var arguments = $(this).serialize();
 				var url = "<?= base_url() ?>board/postMsg";
+				console.log("Sending: " + msg);
 				$.post(url,arguments, function (data,textStatus,jqXHR){
 						var conversation = $('[name=conversation]').val();
 						var msg = $('[name=msg]').val();
@@ -162,13 +164,14 @@
 				} else {
 					game.turn = 1;
 				}
-				for (i=5; i >= 0; i--){
+				for (i=50; i >= 0; i--){
 					if (game.board[i][play] == 0){
 						if (side == 1){
 							game.board[i][play] = 2
 						} else {
 							game.board[i][play] = 1
 						}
+						break;
 					}
 				}
 			}

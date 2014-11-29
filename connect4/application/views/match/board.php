@@ -113,14 +113,6 @@
 	<br>
 
 <?php 
-	
-	$url = '<?= base_url() ?>board/makeMove';
-	$fields = array('col' => urlencode("boo"));
-
-	//url-ify the data for the POST
-	foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-	rtrim($fields_string, '&');
-
 	echo form_textarea('conversation');
 	
 	echo form_open();

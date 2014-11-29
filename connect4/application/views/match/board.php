@@ -81,8 +81,8 @@
 		bctx.fillStyle = "#FFFF00";
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 
-		var w = 50;
-		var h = 20;
+		var w = 100;
+		var h = 100;
 		var i,j;
 		for (i = 0; i < 7; i++){
 			for (j=0; j < 6; j++){
@@ -90,7 +90,7 @@
 				var x = i*w + w/2;
 				var y = j*h + h/2;
 				console.log("Drawing at " + x + "," + y);
-				mctx.arc(x, y, 10, 2*Math.PI, false);
+				mctx.arc(x, y, 45, 2*Math.PI, false);
 				mctx.fillStyle = "#FF00FF";
 				mctx.fill();
 			    mctx.lineWidth = 2;

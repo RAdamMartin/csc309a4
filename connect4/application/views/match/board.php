@@ -88,7 +88,7 @@
 				mctx.beginPath();
 				var x = i*w + w/2;
 				var y = j*h + h/2;
-				console.log("Drawing at " + x + "," + y;
+				console.log("Drawing at " + x + "," + y);
 				mctx.arc(x, y, 10, 2*Math.PI, false);
 				mctx.fillStyle = "#FF00FF";
 				mctx.fill();

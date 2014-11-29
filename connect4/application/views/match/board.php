@@ -134,8 +134,10 @@
 
 		moves.addEventListener('click', function(event){
 			var x = event.pageX - moves.offsetLeft;
-			
-			setCol(~~(x/110));
+			var sel = ~~(x/110);
+			if (document.getElementById(sel).disabled != true){
+				setCol(sel);
+			}
 		});
 
 		function drawPlays(){

@@ -47,13 +47,13 @@
 
 	<br>
 
-<button onclick="setCol('0')">SELECT PLAY</button>
-<button onclick="setCol('1')">SELECT PLAY</button>
-<button onclick="setCol('2')">SELECT PLAY</button>
-<button onclick="setCol('3')">SELECT PLAY</button>
-<button onclick="setCol('4')">SELECT PLAY</button>
-<button onclick="setCol('5')">SELECT PLAY</button>
-<button onclick="setCol('6')">SELECT PLAY</button>
+<button id="0" onclick="setCol('0')">SELECT PLAY</button>
+<button id="1" onclick="setCol('1')">SELECT PLAY</button>
+<button id="2" onclick="setCol('2')">SELECT PLAY</button>
+<button id="3" onclick="setCol('3')">SELECT PLAY</button>
+<button id="4" onclick="setCol('4')">SELECT PLAY</button>
+<button id="5" onclick="setCol('5')">SELECT PLAY</button>
+<button id="6" onclick="setCol('6')">SELECT PLAY</button>
 
 <script>
 		var otherUser = "<?= $otherUser->login ?>";
@@ -169,6 +169,9 @@
 							game.board[i][play] = 2
 						} else {
 							game.board[i][play] = 1
+						}
+						if (i == 5){
+							document.getElementById(play).disabled = true;
 						}
 						break;
 					}

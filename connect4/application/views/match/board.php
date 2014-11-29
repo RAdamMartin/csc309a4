@@ -130,7 +130,13 @@
 		var mctx = moves.getContext("2d");
 
 		bctx.fillStyle = "#FFFF00";
-		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
+		bctx.fillRect(0, 0, bgrd.width, bgrd.height);	
+
+		moves.addEventListener('click', function(event){
+			var x = event.pageX - moves.offsetLeft;
+			
+			setCol(~~(x/110));
+		});
 
 		function drawPlays(){
 			console.log("-->Drawing");

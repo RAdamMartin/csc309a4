@@ -23,6 +23,12 @@
  	color: blue;
  }
 
+ canvas {
+  position: absolute;
+  top: 100;
+  left: 15;
+}
+
  #header{
     font-size:12px;
 	width: 700px;

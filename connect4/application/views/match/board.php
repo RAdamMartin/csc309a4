@@ -45,8 +45,17 @@
 		<canvas class="board" id="plays" style="z-index: 2;" width="770" height="660"></canvas>	
 	</div>
 
-	<script>
+	<br>
 
+<button onclick="setCol('0')">SELECT PLAY</button>
+<button onclick="setCol('1')">SELECT PLAY</button>
+<button onclick="setCol('2')">SELECT PLAY</button>
+<button onclick="setCol('3')">SELECT PLAY</button>
+<button onclick="setCol('4')">SELECT PLAY</button>
+<button onclick="setCol('5')">SELECT PLAY</button>
+<button onclick="setCol('6')">SELECT PLAY</button>
+
+<script>
 		var otherUser = "<?= $otherUser->login ?>";
 		var user = "<?= $user->login ?>";
 		var status = "<?= $status ?>";
@@ -165,19 +174,6 @@
 			}
 		}
 		drawPlays();
-	</script>
-
-	<br>
-
-<button onclick="setCol('0')">SELECT PLAY</button>
-<button onclick="setCol('1')">SELECT PLAY</button>
-<button onclick="setCol('2')">SELECT PLAY</button>
-<button onclick="setCol('3')">SELECT PLAY</button>
-<button onclick="setCol('4')">SELECT PLAY</button>
-<button onclick="setCol('5')">SELECT PLAY</button>
-<button onclick="setCol('6')">SELECT PLAY</button>
-
-<script>
 function setCol (str) {
 	col = int(str);
   	$('#msg').val(str);

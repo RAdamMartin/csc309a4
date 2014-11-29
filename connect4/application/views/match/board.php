@@ -171,7 +171,7 @@
 						} else {
 							game.board[i][play] = 1
 						}
-						if (i == 5){
+						if (i == 0){
 							document.getElementById(play).disabled = true;
 						}
 						break;

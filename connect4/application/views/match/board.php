@@ -11,19 +11,6 @@
 		var user = "<?= $user->login ?>";
 		var status = "<?= $status ?>";
 
-		console.log("painting");
-
-		var bgrd = document.getElementById("frame");
-		var bctx = bgrd.getContext("2d");
-		var moves = document.getElementById("plays");
-		var mctx = moves.getContext("2d");
-
-		bctx.fillStyle = "#FFFF00";
-		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
-
-		mctx.fillStyle
-
-
 		$(function(){
 			$('body').everyTime(2000,function(){
 					if (status == 'waiting') {
@@ -83,6 +70,21 @@
 		Your browser is not supported.
 	</canvas>
 	<canvas id="plays" width="700" height="600"></canvas>	
+
+	<script>
+		console.log("painting");
+
+		var bgrd = document.getElementById("frame");
+		var bctx = bgrd.getContext("2d");
+		var moves = document.getElementById("plays");
+		var mctx = moves.getContext("2d");
+
+		bctx.fillStyle = "#FFFF00";
+		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
+
+		mctx.fillStyle
+	</script>
+
 	<br>
 
 <?php 

@@ -80,11 +80,7 @@
 	echo form_input('msg');
 	echo form_submit('Send','Send');
 	echo form_close();
-
-	echo form_open('board/makeMove', array('id' => 'myform'));
-	echo form_input('col');
-	echo form_submit('Send','Send');
-	echo form_close();
+	
 ?>
 	
 	

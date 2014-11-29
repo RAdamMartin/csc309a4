@@ -3,7 +3,7 @@
 
 <html>
 	<head>
-	<style src="<?= base_url() ?>/css/template.css"></style>
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/template.css">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="<?= base_url() ?>/js/jquery.timers.js"></script>
 	<script>
@@ -70,20 +70,13 @@
 	<div class="gameArea" style="position:relative; width:710px; height:610px">
 		<canvas class="board" id="frame" width="700" height="600" style=
 											"z-index: 1;
-											position:absolute;
-											left:0px;
-											top:0px;
+											
 											border:5px solid #FFFF00;"></canvas>
 		<canvas class="board" id="plays" width="700" height="600" style=
-											"z-index: 2;
-											position:absolute;
-											left:0px;
-											top:0px;"></canvas>	
+											"z-index: 2;"></canvas>	
 	</div>
 
 	<script>
-		console.log("painting");
-
 		var bgrd = document.getElementById("frame");
 		var bctx = bgrd.getContext("2d");
 		var moves = document.getElementById("plays");

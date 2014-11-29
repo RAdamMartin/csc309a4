@@ -37,6 +37,17 @@
 					});
 			});
 
+			$('myform').submit(function(){
+				var arguments = $(this).serialize();
+				var url = "<?= base_url() ?>board/postMsg";
+				$.post(url,arguments, function (data,textStatus,jqXHR){
+						var conversation = $('[name=conversation]').val();
+						var msg = $('[name=msg]').val();
+						$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
+						});
+				return false;
+				}
+
 			$('form').submit(function(){
 				var arguments = $(this).serialize();
 				var url = "<?= base_url() ?>board/postMsg";
@@ -80,7 +91,11 @@
 	echo form_input('msg');
 	echo form_submit('Send','Send');
 	echo form_close();
-	
+
+	echo form_open('id' => 'myform');
+	echo form_input('col');
+	echo form_submit('Send','Send');
+	echo form_close();
 ?>
 	
 	

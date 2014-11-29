@@ -105,7 +105,7 @@
 					drawPlays();	
 			});
 
-			$('form').submit(function(){
+			$('form').submit(function(event){
 				if (game.turn == side){
 					var msg = $('[name=msg]').val();
 					setPlay(parseInt(msg), side);
@@ -116,6 +116,8 @@
 							$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 							});
 					return false;
+				} else {
+					event.preventDefault();
 				}
 			});	
 	//	});

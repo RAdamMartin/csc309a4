@@ -67,11 +67,18 @@
 			echo "Wating on " . $otherUser->login;
 	?>
 	</div>
-	<div class="gameArea">
-		<canvas class="board" id="frame" width="700" height="600" style="border:5px solid #FFFF00;">
-			Your browser is not supported.
-		</canvas>
-		<canvas class="board" id="plays" width="700" height="600"></canvas>	
+	<div class="gameArea" style="position:relative;">
+		<canvas class="board" id="frame" width="700" height="600" style=
+											"z-index: 1;
+											position:absolute;
+											left:0px;
+											top:0px;
+											border:5px solid #FFFF00;"></canvas>
+		<canvas class="board" id="plays" width="700" height="600" style=
+											"z-index: 2;
+											position:absolute;
+											left:0px;
+											top:0px;"></canvas>	
 	</div>
 
 	<script>

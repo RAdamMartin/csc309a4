@@ -93,9 +93,9 @@
 				mctx.arc(x, y, 10, 2*Math.PI, false);
 				mctx.fillStyle = "#FF00FF";
 				mctx.fill();
-			    mcxt.lineWidth = 2;
-			    mcxt.strokeStyle = '#FFFF00';
-			    mcxt.stroke();				
+			    mctx.lineWidth = 2;
+			    mctx.strokeStyle = '#FFFF00';
+			    mctx.stroke();				
 			}
 		}
 		//mctx.fillStyle

@@ -83,11 +83,13 @@
 
 		var w = 50;
 		var h = 50;
-		for (var i = 0; i < 7; i++){
-			for (var j=0; j < 6; j++){
+		for (i = 0; i < 7; i++){
+			for (j=0; j < 6; j++){
 				mctx.beginPath();
-				//console.log("Drawing at " + (i*w + w/2) + "," + (j*h + h/2);
-				mctx.arc(i*w + w/2, j*h + h/2, 10, 2*Math.PI, false);
+				var x = i*w + w/2;
+				var y = j*h + h/2;
+				console.log("Drawing at " + x + "," + y;
+				mctx.arc(x, y, 10, 2*Math.PI, false);
 				mctx.fillStyle = "#FF00FF";
 				mctx.fill();
 			    mcxt.lineWidth = 2;

@@ -94,9 +94,9 @@
 	
 <br>
 
-	<div class="gameArea" style="position:relative; width:710px; height:610px">
+	<div class="gameArea" style="position:relative; width:780px; height:670px">
 		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;" width="700" height="600"></canvas>
-		<canvas class="board" id="plays" style="z-index: 2;" width="700" height="600"></canvas>	
+		<canvas class="board" id="plays" style="z-index: 2;" width="770" height="660"></canvas>	
 	</div>
 
 	<script>
@@ -108,8 +108,8 @@
 		bctx.fillStyle = "#FFFF00";
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 
-		var w = 100;
-		var h = 100;
+		var w = 110;
+		var h = 110;
 		var i,j;
 		for (i = 0; i < 7; i++){
 			for (j=0; j < 6; j++){
@@ -117,7 +117,7 @@
 				var x = i*w + w/2;
 				var y = j*h + h/2;
 				console.log("Drawing at " + x + "," + y);
-				mctx.arc(x, y, 45, 2*Math.PI, false);
+				mctx.arc(x, y, 50, 2*Math.PI, false);
 				mctx.fillStyle = "white";
 				mctx.fill();
 			    mctx.lineWidth = 2;

@@ -67,10 +67,12 @@
 			echo "Wating on " . $otherUser->login;
 	?>
 	</div>
-	<canvas class="board" id="frame" width="700" height="600" style="border:5px solid #FFFF00;">
-		Your browser is not supported.
-	</canvas>
-	<canvas class="board" id="plays" width="700" height="600"></canvas>	
+	<div class="gameArea">
+		<canvas class="board" id="frame" width="700" height="600" style="border:5px solid #FFFF00;">
+			Your browser is not supported.
+		</canvas>
+		<canvas class="board" id="plays" width="700" height="600"></canvas>	
+	</div>
 
 	<script>
 		console.log("painting");

@@ -86,6 +86,7 @@
 		for (var i = 0; i < 7; i++){
 			for (var j=0; j < 6; j++){
 				mctx.beginPath();
+				console.log("Drawing at " + (i*w + w/2) + "," + (j*h + h/2);
 				mctx.arc(i*w + w/2, j*h + h/2, 10, 2*Math.PI, false);
 				mctx.fillStyle = "#FF00FF";
 				mctx.fill();

@@ -108,6 +108,8 @@
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
 						}
 					});
+					console.log("looping");
+					drawPlays();
 			});
 
 			$('form').submit(function(){

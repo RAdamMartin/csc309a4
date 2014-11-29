@@ -106,16 +106,18 @@
 			});
 
 			$('form').submit(function(){
-				var msg = $('[name=msg]').val();
-				setPlay(parseInt(msg), side);
-				var arguments = $(this).serialize();
-				var url = "<?= base_url() ?>board/postMsg";
-				$.post(url,arguments, function (data,textStatus,jqXHR){
-						var conversation = $('[name=conversation]').val();
-						$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
-						});
-				return false;
-				});	
+				if (game.turn == side){
+					var msg = $('[name=msg]').val();
+					setPlay(parseInt(msg), side);
+					var arguments = $(this).serialize();
+					var url = "<?= base_url() ?>board/postMsg";
+					$.post(url,arguments, function (data,textStatus,jqXHR){
+							var conversation = $('[name=conversation]').val();
+							$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
+							});
+					return false;
+				}
+			});	
 	//	});
 		var bgrd = document.getElementById("frame");
 		var bctx = bgrd.getContext("2d");

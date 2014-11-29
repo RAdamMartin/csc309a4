@@ -128,9 +128,9 @@
 <button onclick="setCol('1')">SELECT</button>
 
 <script>
-function setCol(str){
-	document.getElementById('msg').innerHTML = '1';
-}
+$(function (str) {
+  $('#msg').val(str);
+});
 </script>
 
 </body>

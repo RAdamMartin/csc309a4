@@ -82,7 +82,7 @@
 		bctx.fillStyle = "#FFFF00";
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 
-		mctx.fillStyle
+		//mctx.fillStyle
 	</script>
 
 	<br>

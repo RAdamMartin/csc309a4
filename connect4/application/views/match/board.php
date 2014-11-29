@@ -155,7 +155,11 @@
 				}
 				for (i=6; i >= 0; i--){
 					if (game.board[i][play] == 0){
-						game.board[i][play] = 
+						if (side == 1){
+							game.board[i][play] = 2
+						} else {
+							game.board[i][play] = 1
+						}
 					}
 				}
 			}

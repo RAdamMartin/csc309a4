@@ -60,6 +60,7 @@
 		var user = "<?= $user->login ?>";
 		var status = "<?= $status ?>";
 		var side = "<?= $side ?>";
+		var other = (side == 1) ? 2 : 1;
 		var col = 3;
 		var colour1 = "red";
 		var colour2 = "blue";
@@ -95,7 +96,8 @@
 							if (msg!= null && msg.length > 0){
 								console.log("Received: " + msg);
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
-								setPlay(parseInt(msg));
+								console.log("setting play for " + other + " in col " + msg);
+								setPlay(parseInt(msg), other);
 							}
 						}
 					});
@@ -157,7 +159,7 @@
 			}
 		}
 
-		function setPlay(play){
+		function setPlay(play, player){
 			console.log("-->Setting " + play);
 			if (play < 7 && play >= 0){
 				if (game.turn == 1){
@@ -167,7 +169,7 @@
 				}
 				for (i=5; i >= 0; i--){
 					if (game.board[i][play] == 0){
-						if (side == 1){
+						if (player == 1){
 							game.board[i][play] = 2
 						} else {
 							game.board[i][play] = 1

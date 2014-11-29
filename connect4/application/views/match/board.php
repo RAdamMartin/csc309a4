@@ -114,6 +114,7 @@
 
 	<button onclick="document.getElementById('msg').innerHTML = '1'">SELECT</button>
 
+	<br>
 <?php 
 	echo form_textarea('conversation');
 	

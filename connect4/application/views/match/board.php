@@ -130,13 +130,13 @@
 
 	<br>
 
-<button onclick="setCol('1')">SELECT</button>
-<button onclick="setCol('2')">SELECT</button>
-<button onclick="setCol('3')">SELECT</button>
-<button onclick="setCol('4')">SELECT</button>
-<button onclick="setCol('5')">SELECT</button>
-<button onclick="setCol('6')">SELECT</button>
-<button onclick="setCol('7')">SELECT</button>
+<button onclick="setCol('1')">SELECT PLAY</button>
+<button onclick="setCol('2')">SELECT PLAY</button>
+<button onclick="setCol('3')">SELECT PLAY</button>
+<button onclick="setCol('4')">SELECT PLAY</button>
+<button onclick="setCol('5')">SELECT PLAY</button>
+<button onclick="setCol('6')">SELECT PLAY</button>
+<button onclick="setCol('7')">SELECT PLAY</button>
 
 <script>
 function setCol (str) {

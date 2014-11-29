@@ -68,8 +68,8 @@
 	?>
 	</div>
 	<div class="gameArea" style="position:relative; width:710px; height:610px">
-		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;"></canvas>
-		<canvas class="board" id="plays" style="z-index: 2;"></canvas>	
+		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;" width="700" height="600"></canvas>
+		<canvas class="board" id="plays" style="z-index: 2;" width="700" height="600"></canvas>	
 	</div>
 
 	<script>
@@ -82,7 +82,7 @@
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 
 		var w = 50;
-		var h = 50;
+		var h = 20;
 		var i,j;
 		for (i = 0; i < 7; i++){
 			for (j=0; j < 6; j++){

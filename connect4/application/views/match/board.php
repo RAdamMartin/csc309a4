@@ -6,74 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/template.css">
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="<?= base_url() ?>/js/jquery.timers.js"></script>
-	<script>
-
-		var otherUser = "<?= $otherUser->login ?>";
-		var user = "<?= $user->login ?>";
-		var status = "<?= $status ?>";
-		var side = "<?= $side ?>";
-		var col = 3;
-		var colour1 = "red";
-		var colour2 = "blue";
-		var game = {turn:1, 
-					board:
-					[[0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0]]};
-
-		$(function(){
-			$('body').everyTime(2000,function(){
-					if (status == 'waiting') {
-						$.getJSON('<?= base_url() ?>arcade/checkInvitation',function(data, text, jqZHR){
-								if (data && data.status=='rejected') {
-									alert("Sorry, your invitation to play was declined!");
-									window.location.href = '<?= base_url() ?>arcade/index';
-								}
-								if (data && data.status=='accepted') {
-									status = 'playing';
-									$('#status').html('Playing ' + otherUser);
-								}
-								
-						});
-					}
-					var url = "<?= base_url() ?>board/getMsg";
-					$.getJSON(url, function (data,text,jqXHR){
-						if (data && data.status=='success') {
-							var conversation = $('[name=conversation]').val();
-							var msg = data.message;
-							if (msg.length > 0)
-								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
-								setPlay(int(msg));
-								drawPlays();
-						}
-					});
-					var url = "<?= base_url() ?>board/getMove";
-					$.getJSON(url, function (data,text,jqXHR){
-						if (data && data.status=='success') {
-							var conversation = $('[name=conversation]').val();
-							var msg = data.message;
-							if (msg.length > 0)
-								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
-						}
-					});
-			});
-
-			$('form').submit(function(){
-				var arguments = $(this).serialize();
-				var url = "<?= base_url() ?>board/postMsg";
-				$.post(url,arguments, function (data,textStatus,jqXHR){
-						var conversation = $('[name=conversation]').val();
-						var msg = $('[name=msg]').val();
-						$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
-						});
-				return false;
-				});	
-		});
-	
-	</script>
 	</head> 
 
 
@@ -114,6 +46,72 @@
 	</div>
 
 	<script>
+
+		var otherUser = "<?= $otherUser->login ?>";
+		var user = "<?= $user->login ?>";
+		var status = "<?= $status ?>";
+		var side = "<?= $side ?>";
+		var col = 3;
+		var colour1 = "red";
+		var colour2 = "blue";
+		var game = {turn:1, 
+					board:
+					[[0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0]]};
+
+		$(function(){
+			$('body').everyTime(2000,function(){
+					if (status == 'waiting') {
+						$.getJSON('<?= base_url() ?>arcade/checkInvitation',function(data, text, jqZHR){
+								if (data && data.status=='rejected') {
+									alert("Sorry, your invitation to play was declined!");
+									window.location.href = '<?= base_url() ?>arcade/index';
+								}
+								if (data && data.status=='accepted') {
+									status = 'playing';
+									$('#status').html('Playing ' + otherUser);
+								}
+								
+						});
+					}
+					var url = "<?= base_url() ?>board/getMsg";
+					$.getJSON(url, function (data,text,jqXHR){
+						if (data && data.status=='success') {
+							var conversation = $('[name=conversation]').val();
+							var msg = data.message;
+							if (msg.length > 0){
+								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
+								setPlay(int(msg));
+								drawPlays();
+							}
+						}
+					});
+					var url = "<?= base_url() ?>board/getMove";
+					$.getJSON(url, function (data,text,jqXHR){
+						if (data && data.status=='success') {
+							var conversation = $('[name=conversation]').val();
+							var msg = data.message;
+							if (msg.length > 0)
+								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
+						}
+					});
+			});
+
+			$('form').submit(function(){
+				var arguments = $(this).serialize();
+				var url = "<?= base_url() ?>board/postMsg";
+				$.post(url,arguments, function (data,textStatus,jqXHR){
+						var conversation = $('[name=conversation]').val();
+						var msg = $('[name=msg]').val();
+						$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
+						});
+				return false;
+				});	
+		});
 		var bgrd = document.getElementById("frame");
 		var bctx = bgrd.getContext("2d");
 		var moves = document.getElementById("plays");
@@ -148,16 +146,16 @@
 			}
 		}
 
-		function setPlay(str){
-			if (int(str) < 7){
+		function setPlay(play){
+			if (play < 7 && play >= 0){
 				if (game.turn == 1){
 					game.turn = 2;
 				} else {
 					game.turn = 1;
 				}
 				for (i=6; i >= 0; i--){
-					if (game.board[i][int(str)] == 0){
-						game.board[i][int(str)] = 
+					if (game.board[i][play] == 0){
+						game.board[i][play] = 
 					}
 				}
 			}

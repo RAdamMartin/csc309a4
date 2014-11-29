@@ -95,7 +95,7 @@
 <br>
 
 	<div class="gameArea" style="position:relative; width:780px; height:670px">
-		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;" width="700" height="600"></canvas>
+		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;" width="770" height="660"></canvas>
 		<canvas class="board" id="plays" style="z-index: 2;" width="770" height="660"></canvas>	
 	</div>
 

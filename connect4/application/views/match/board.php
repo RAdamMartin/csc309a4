@@ -106,13 +106,12 @@
 			});
 
 			$('form').submit(function(){
-				alert("submitted");
+				var msg = $('[name=msg]').val();
 				setPlay(parseInt(msg), side);
 				var arguments = $(this).serialize();
 				var url = "<?= base_url() ?>board/postMsg";
 				$.post(url,arguments, function (data,textStatus,jqXHR){
 						var conversation = $('[name=conversation]').val();
-						var msg = $('[name=msg]').val();
 						$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 						});
 				return false;

@@ -98,11 +98,11 @@
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
 								console.log("setting play for " + other + " in col " + msg);
 								setPlay(parseInt(msg), other);
+								drawPlays();	
 							}
 						}
 					});
 					console.log("looping");
-					drawPlays();	
 			});
 
 			$('form').submit(function(event){
@@ -116,8 +116,10 @@
 							$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 							});
 					$('[name=msg]').val("select play");
+					drawPlays();
 					return false;
 				} else {
+					alert("It is not your turn!");
 					event.preventDefault();
 				}
 			});	
@@ -142,7 +144,7 @@
 					var y = j*h + h/2;
 					mctx.arc(x, y, 50, 2*Math.PI, false);
 					if (game.board[j][i] == 0){
-						mctx.fillStyle = "white";
+						mctx.fillStyle = (col == i) ? "grey" : "white";
 					} else if (game.board[j][i] == 1){
 						mctx.fillStyle = colour1;
 					} else {

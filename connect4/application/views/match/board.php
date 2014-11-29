@@ -10,7 +10,11 @@
 		var otherUser = "<?= $otherUser->login ?>";
 		var user = "<?= $user->login ?>";
 		var status = "<?= $status ?>";
-		
+
+		var bgrd = document.getElementById("frame");
+		var ctx = bgrd.getContext("2d");
+		ctx.fillStyle = "#FFFF00";
+		ctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 		$(function(){
 			$('body').everyTime(2000,function(){
 					if (status == 'waiting') {
@@ -66,10 +70,10 @@
 			echo "Wating on " . $otherUser->login;
 	?>
 	</div>
-	
-	<canvas id="board" width="700" height="600" style="border:5px solid #FFFF00;">
+	<canvas id="frame" width="700" height="600" style="border:5px solid #FFFF00;">
 		Your browser is not supported.
 	</canvas>
+	<canvas id="plays" width="700" height="600"></canvas>	
 	<br>
 
 <?php 

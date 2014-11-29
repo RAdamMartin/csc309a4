@@ -141,6 +141,8 @@ class Board extends CI_Controller {
  	
 
  	function makeMove() { 		
+ 		$this->load->library('form_validation');
+ 		$this->form_validation->set_rules('col', 'Message', 'required');
  		if ($this->form_validation->run() == TRUE) {
  			$this->load->model('user_model');
  			$this->load->model('match_model');

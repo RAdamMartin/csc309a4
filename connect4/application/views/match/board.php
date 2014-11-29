@@ -115,7 +115,9 @@
 	echo form_textarea('conversation');
 	
 	echo form_open();
-	echo '<input id="msg" type="text" name="msg" value=""  />'
+	?>
+<input id="msg" type="text" name="msg" value=""></input>
+<?php
 	echo form_submit('Send','Send');
 
 	echo form_close();

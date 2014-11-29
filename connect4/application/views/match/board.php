@@ -67,7 +67,7 @@
 			echo "Wating on " . $otherUser->login;
 	?>
 	</div>
-	<div class="gameArea" style="position:relative; width:710px; height:610px" left="5%">
+	<div class="gameArea" style="position:relative; width:710px; height:610px">
 		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;"></canvas>
 		<canvas class="board" id="plays" style="z-index: 2;"></canvas>	
 	</div>
@@ -87,9 +87,9 @@
 		mctx.fillRect(0, 0, bgrd.width/2, bgrd.height/2);
 		for (var i = 0; i < 7; i++){
 			for (var j=0; j < 6; j++){
-				bctx.beginPath();
-				bctx.arc(i*w + w/2, j*h + h/2, 90, 2*Math.PI, false);
-				bctx.fill();
+				mctx.beginPath();
+				mctx.arc(i*w + w/2, j*h + h/2, 90, 2*Math.PI, false);
+				mctx.fill();
 			}
 		}
 		//mctx.fillStyle

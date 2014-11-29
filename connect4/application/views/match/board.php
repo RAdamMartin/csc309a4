@@ -85,7 +85,7 @@
 
 		var w = 100;
 		var h = 100;
-		mctx.fillStyle = "#FFFFFF";
+		mctx.fillStyle = "#FF00FF";
 		for (var i = 0; i < 7; i++){
 			for (var j=0; j < 6; j++){
 				bctx.beginPath();

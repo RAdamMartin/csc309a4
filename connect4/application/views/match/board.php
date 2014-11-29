@@ -61,6 +61,22 @@
 	
 	</script>
 	</head> 
+
+<?php 
+	echo form_textarea('conversation');
+	
+	echo form_open();
+	?>
+<input id="msg" type="text" name="msg" value=""></input>
+<?php
+	echo form_submit('Send','Send');
+
+	echo form_close();
+	
+?>
+	
+<br>
+
 <body>  
 	<h1>Game Area</h1>
 
@@ -111,20 +127,7 @@
 	</script>
 
 	<br>
-<?php 
-	echo form_textarea('conversation');
-	
-	echo form_open();
-	?>
-<input id="msg" type="text" name="msg" value=""></input>
-<?php
-	echo form_submit('Send','Send');
 
-	echo form_close();
-	
-?>
-	
-<br>
 <button onclick="setCol('1')">SELECT</button>
 
 <script>

@@ -106,6 +106,7 @@
 			});
 
 			$('form').submit(function(){
+				alert("submitted");
 				setPlay(parseInt(msg), side);
 				var arguments = $(this).serialize();
 				var url = "<?= base_url() ?>board/postMsg";

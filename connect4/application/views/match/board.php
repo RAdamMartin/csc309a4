@@ -36,6 +36,15 @@
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
 						}
 					});
+					var url = "<?= base_url() ?>board/getMove";
+					$.getJSON(url, function (data,text,jqXHR){
+						if (data && data.status=='success') {
+							var conversation = $('[name=conversation]').val();
+							var msg = data.message;
+							if (msg.length > 0)
+								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
+						}
+					});
 			});
 
 			$('form').submit(function(){
@@ -105,6 +114,30 @@
 
 <?php 
 	
+	$url = '<?= base_url() ?>board/makeMove';
+	$fields = array('col' => urlencode("boo"));
+
+	//url-ify the data for the POST
+	foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+	rtrim($fields_string, '&');
+
+	//open connection
+	$ch = curl_init();
+
+	//set the url, number of POST vars, POST data
+	curl_setopt($ch,CURLOPT_URL, $url);
+	curl_setopt($ch,CURLOPT_POST, count($fields));
+	curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+
+	//execute post
+	$result = curl_exec($ch);
+
+	echo "<div>"+$result+"</div>"
+
+	//close connection
+	curl_close($ch);
+
+
 	echo form_textarea('conversation');
 	
 	echo form_open();

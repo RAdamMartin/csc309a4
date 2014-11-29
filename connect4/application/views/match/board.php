@@ -62,20 +62,6 @@
 	</script>
 	</head> 
 
-<?php 
-	echo form_textarea('conversation');
-	
-	echo form_open();
-	?>
-<input id="msg" type="text" name="msg" value=""></input>
-<?php
-	echo form_submit('Send','Send');
-
-	echo form_close();
-	
-?>
-	
-<br>
 
 <body>  
 	<h1>Game Area</h1>
@@ -92,6 +78,22 @@
 			echo "Wating on " . $otherUser->login;
 	?>
 	</div>
+
+<?php 
+	echo form_textarea('conversation');
+	
+	echo form_open();
+	?>
+<input id="msg" type="text" name="msg" value=""></input>
+<?php
+	echo form_submit('Send','Send');
+
+	echo form_close();
+	
+?>
+	
+<br>
+
 	<div class="gameArea" style="position:relative; width:710px; height:610px">
 		<canvas class="board" id="frame" style="z-index: 1; border:5px solid #FFFF00;" width="700" height="600"></canvas>
 		<canvas class="board" id="plays" style="z-index: 2;" width="700" height="600"></canvas>	

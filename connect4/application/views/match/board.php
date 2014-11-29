@@ -3,6 +3,7 @@
 
 <html>
 	<head>
+	<style src="<?= base_url() ?>/css/template.css"></style>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="<?= base_url() ?>/js/jquery.timers.js"></script>
 	<script>

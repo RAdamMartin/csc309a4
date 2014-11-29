@@ -39,7 +39,7 @@
 
 			$('myform').submit(function(){
 				var arguments = $(this).serialize();
-				var url = "<?= base_url() ?>board/postMsg";
+				var url = "<?= base_url() ?>board/makeMove";
 				$.post(url,arguments, function (data,textStatus,jqXHR){
 						var conversation = $('[name=conversation]').val();
 						var msg = $('[name=msg]').val();
@@ -92,10 +92,10 @@
 	echo form_submit('Send','Send');
 	echo form_close();
 
-	echo form_open('id' => 'myform');
-	echo form_input('col');
-	echo form_submit('Send','Send');
-	echo form_close();
+	//echo form_open('id' => 'myform');
+	//echo form_input('col');
+	//echo form_submit('Send','Send');
+	//echo form_close();
 ?>
 	
 	

@@ -123,10 +123,12 @@
 ?>
 	
 <br>
-<button onclick="setCol()">SELECT</button>
+<button onclick="setCol('1')">SELECT</button>
 
 <script>
-document.getElementByName('msg').innerHTML = '1';
+function setCol(str){
+	document.getElementByName('msg').innerHTML = '1';
+}
 </script>
 
 </body>

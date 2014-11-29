@@ -83,6 +83,7 @@
 
 		var w = 50;
 		var h = 50;
+		var i,j;
 		for (i = 0; i < 7; i++){
 			for (j=0; j < 6; j++){
 				mctx.beginPath();

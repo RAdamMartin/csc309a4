@@ -37,17 +37,6 @@
 					});
 			});
 
-			$('myform').submit(function(){
-				var arguments = $(this).serialize();
-				var url = "<?= base_url() ?>board/makeMove";
-				$.post(url,arguments, function (data,textStatus,jqXHR){
-						var conversation = $('[name=conversation]').val();
-						var msg = $('[name=msg]').val();
-						$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
-						});
-				return false;
-				}
-
 			$('form').submit(function(){
 				var arguments = $(this).serialize();
 				var url = "<?= base_url() ?>board/postMsg";

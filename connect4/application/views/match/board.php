@@ -163,7 +163,7 @@
 				} else {
 					game.turn = 1;
 				}
-				for (i=50; i >= 0; i--){
+				for (i=5; i >= 0; i--){
 					if (game.board[i][play] == 0){
 						if (side == 1){
 							game.board[i][play] = 2

@@ -72,7 +72,7 @@
 					[0,0,0,0,0,0,0],
 					[0,0,0,0,0,0,0]]};
 
-		$(function(){
+		//$(function(){
 			$('body').everyTime(2000,function(){
 					if (status == 'waiting') {
 						$.getJSON('<?= base_url() ?>arcade/checkInvitation',function(data, text, jqZHR){
@@ -109,7 +109,7 @@
 						}
 					});
 					console.log("looping");
-					drawPlays();
+					drawPlays();	
 			});
 
 			$('form').submit(function(){
@@ -122,7 +122,7 @@
 						});
 				return false;
 				});	
-		});
+	//	});
 		var bgrd = document.getElementById("frame");
 		var bctx = bgrd.getContext("2d");
 		var moves = document.getElementById("plays");
@@ -132,6 +132,7 @@
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 
 		function drawPlays(){
+			console.log("-->Drawing");
 			var w = 110;
 			var h = 110;
 			var i,j;
@@ -140,7 +141,6 @@
 					mctx.beginPath();
 					var x = i*w + w/2;
 					var y = j*h + h/2;
-					console.log("Drawing at " + x + "," + y);
 					mctx.arc(x, y, 50, 2*Math.PI, false);
 					if (game.board[j][i] == 0){
 						mctx.fillStyle = "white";
@@ -158,7 +158,7 @@
 		}
 
 		function setPlay(play){
-			console.log("Setting " + play);
+			console.log("-->Setting " + play);
 			if (play < 7 && play >= 0){
 				if (game.turn == 1){
 					game.turn = 2;

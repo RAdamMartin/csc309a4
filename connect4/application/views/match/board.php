@@ -81,14 +81,17 @@
 		bctx.fillStyle = "#FFFF00";
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);		
 
-		var w = 100;
-		var h = 100;
-		mctx.fillStyle = "#FF00FF";
+		var w = 50;
+		var h = 50;
 		for (var i = 0; i < 7; i++){
 			for (var j=0; j < 6; j++){
 				mctx.beginPath();
 				mctx.arc(i*w + w/2, j*h + h/2, 10, 2*Math.PI, false);
+				mctx.fillStyle = "#FF00FF";
 				mctx.fill();
+			    mcxt.lineWidth = 2;
+			    mcxt.strokeStyle = '#FFFF00';
+			    mcxt.stroke();				
 			}
 		}
 		//mctx.fillStyle

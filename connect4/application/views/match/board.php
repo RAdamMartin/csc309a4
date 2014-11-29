@@ -123,8 +123,12 @@
 ?>
 	
 <br>
-<button onclick="function{document.getElementByName('msg').innerHTML = '1'}">SELECT</button>
-	
+<button onclick="setCol()">SELECT</button>
+
+<script>
+document.getElementByName('msg').innerHTML = '1';
+</script>
+
 </body>
 
 </html>

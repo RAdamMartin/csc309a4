@@ -104,7 +104,7 @@
 						if (data && data.status=='success') {
 							var conversation = $('[name=conversation]').val();
 							var msg = data.message;
-							if (msg.length > 0)
+							if (msg != null && msg.length > 0)
 								$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
 						}
 					});

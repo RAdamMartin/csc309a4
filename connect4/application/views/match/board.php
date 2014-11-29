@@ -123,8 +123,8 @@
 ?>
 	
 <br>
-<button onclick="document.getElementById('msg').innerHTML = '1'">SELECT</button>
-	
+<!--<button onclick="document.getElementById('msg').innerHTML = '1'">SELECT</button>
+	-->
 	
 </body>
 

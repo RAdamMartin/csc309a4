@@ -11,7 +11,7 @@
 		var user = "<?= $user->login ?>";
 		var status = "<?= $status ?>";
 
-		log.console("painting");
+		console.log("painting");
 
 		var bgrd = document.getElementById("frame");
 		var bctx = bgrd.getContext("2d");

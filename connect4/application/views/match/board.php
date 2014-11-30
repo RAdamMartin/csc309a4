@@ -205,7 +205,7 @@
 			drawPlays();
 		}
 
-		function checkWin(col, row){
+		function checkWin(row, col){
 			/*var max = 1;
 			var above = (col < 6) ? (col + 1) : col;
 			var below = (col > 0) ? (col - 1) : col;
@@ -221,11 +221,11 @@
 				}
 			}*/
 
-			for (var i = 0; i < 7; i++){
-				for (var j = 0; j < 6; j++){
-					//Rows
+			for (var i = 0; i < 6; i++){
+				for (var j = 0; j < 7; j++){
+					//Cols
 					if (game.board[i][j] > 0){
-						if (i < 4 && game.board[i][j] == game.board[i+1][j] && 
+						if (i < 3 && game.board[i][j] == game.board[i+1][j] && 
 									game.board[i][j] == game.board[i+2][j] && 
 									game.board[i][j] == game.board[i+3][j]){
 							game.board[i][j] += 2;
@@ -234,7 +234,7 @@
 							game.board[i+3][j] += 2;
 							return true;
 						}
-						else if (i>2 && game.board[i][j] == game.board[i-1][j] && 
+						else if (i > 2 && game.board[i][j] == game.board[i-1][j] && 
 										game.board[i][j] == game.board[i-2][j] && 
 										game.board[i][j] == game.board[i-3][j]){
 							game.board[i][j] += 2;
@@ -243,8 +243,8 @@
 							game.board[i-3][j] += 2;
 							return true;
 						}
-						//Cols
-						if (j < 3 && game.board[i][j] == game.board[i][j+1] && 
+						//Rows
+						if (j < 4 && game.board[i][j] == game.board[i][j+1] && 
 									game.board[i][j] == game.board[i][j+2] && 
 									game.board[i][j] == game.board[i][j+3]){
 							game.board[i][j] += 2;
@@ -253,7 +253,7 @@
 							game.board[i][j+3] += 2;
 							return true;
 						}
-						else if (j > 3 && game.board[i][j] == game.board[i][j-1] && 
+						else if (j > 2 && game.board[i][j] == game.board[i][j-1] && 
 									game.board[i][j] == game.board[i][j-2] && 
 									game.board[i][j] == game.board[i][j-3]){
 							game.board[i][j] += 2;

@@ -205,7 +205,7 @@
 			drawPlays();
 		}
 
-		function checkWin(col row){
+		function checkWin(col, row){
 			/*var max = 1;
 			var above = (col < 6) ? (col + 1) : col;
 			var below = (col > 0) ? (col - 1) : col;

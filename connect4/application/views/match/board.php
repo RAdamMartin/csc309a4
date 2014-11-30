@@ -224,42 +224,44 @@
 			for (var i = 0; i < 7; i++){
 				for (var j = 0; j < 6; j++){
 					//Rows
-					if (i < 4 && game.board[i][j] == game.board[i+1][j] && 
-								game.board[i][j] == game.board[i+2][j] && 
-								game.board[i][j] == game.board[i+3][j]){
-						game.board[i][j] += 2;
-						game.board[i+1][j] += 2;
-						game.board[i+2][j] += 2;
-						game.board[i+3][j] += 2;
-						return true;
-					}
-					else if (i>2 && game.board[i][j] == game.board[i-1][j] && 
-									game.board[i][j] == game.board[i-2][j] && 
-									game.board[i][j] == game.board[i-3][j]){
-						game.board[i][j] += 2;
-						game.board[i-1][j] += 2;
-						game.board[i-2][j] += 2;
-						game.board[i-3][j] += 2;
-						return true;
-					}
-					//Cols
-					if (j < 3 && game.board[i][j] == game.board[i][j+1] && 
-								game.board[i][j] == game.board[i][j+2] && 
-								game.board[i][j] == game.board[i][j+3]){
-						game.board[i][j] += 2;
-						game.board[i][j+1] += 2;
-						game.board[i][j+2] += 2;
-						game.board[i][j+3] += 2;
-						return true;
-					}
-					else if (j > 3 && game.board[i][j] == game.board[i][j-1] && 
-								game.board[i][j] == game.board[i][j-2] && 
-								game.board[i][j] == game.board[i][j-3]){
-						game.board[i][j] += 2;
-						game.board[i][j+1] += 2;
-						game.board[i][j+2] += 2;
-						game.board[i][j+3] += 2;
-						return true;
+					if (game.board[i][j] > 0){
+						if (i < 4 && game.board[i][j] == game.board[i+1][j] && 
+									game.board[i][j] == game.board[i+2][j] && 
+									game.board[i][j] == game.board[i+3][j]){
+							game.board[i][j] += 2;
+							game.board[i+1][j] += 2;
+							game.board[i+2][j] += 2;
+							game.board[i+3][j] += 2;
+							return true;
+						}
+						else if (i>2 && game.board[i][j] == game.board[i-1][j] && 
+										game.board[i][j] == game.board[i-2][j] && 
+										game.board[i][j] == game.board[i-3][j]){
+							game.board[i][j] += 2;
+							game.board[i-1][j] += 2;
+							game.board[i-2][j] += 2;
+							game.board[i-3][j] += 2;
+							return true;
+						}
+						//Cols
+						if (j < 3 && game.board[i][j] == game.board[i][j+1] && 
+									game.board[i][j] == game.board[i][j+2] && 
+									game.board[i][j] == game.board[i][j+3]){
+							game.board[i][j] += 2;
+							game.board[i][j+1] += 2;
+							game.board[i][j+2] += 2;
+							game.board[i][j+3] += 2;
+							return true;
+						}
+						else if (j > 3 && game.board[i][j] == game.board[i][j-1] && 
+									game.board[i][j] == game.board[i][j-2] && 
+									game.board[i][j] == game.board[i][j-3]){
+							game.board[i][j] += 2;
+							game.board[i][j+1] += 2;
+							game.board[i][j+2] += 2;
+							game.board[i][j+3] += 2;
+							return true;
+						}
 					}
 				}
 			}

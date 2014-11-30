@@ -63,7 +63,7 @@
 		var other = (side == 1) ? 2 : 1;
 		var col = -1;
 		var colour1 = "red";
-		var bgrd_col = "FFFF00";
+		var bgrd_col = "#FFFF00";
 		var colour2 = "blue";
 		var game = {turn:1, 
 					board:
@@ -161,7 +161,7 @@
 						mctx.fillStyle = colour2;
 					}
 					mctx.fill();
-				    mctx.lineWidth = 5;
+				    mctx.lineWidth = 3;
 				    if (game.board[j][i] < 3){
 				    	mctx.strokeStyle = bgrd_col;
 				    } else {

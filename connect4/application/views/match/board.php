@@ -116,6 +116,7 @@
 							$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 							});
 					$('[name=msg]').val("select play");
+					col = -1;
 					drawPlays();
 					return false;
 				} else {

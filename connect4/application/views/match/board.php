@@ -221,10 +221,8 @@
 				}
 			}*/
 
-			var i = 0;
-			var j = 0;
-			for (i < 7; i++){
-				for (j < 6; j++){
+			for (var i = 0; i < 7; i++){
+				for (var j = 0; j < 6; j++){
 					//Rows
 					if (i < 4 &&board[i][j] == board[i+1][j] && 
 								board[i][j] == board[i+2][j] && 

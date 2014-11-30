@@ -155,7 +155,7 @@
 					mctx.arc(x, y, 50, 2*Math.PI, false);
 					if (game.board[j][i] == 0){
 						mctx.fillStyle = (col == i) ? "grey" : "white";
-					} else if (game.board[j][i]%2 == 1){
+					} else if (game.board[j][i] == 1){
 						mctx.fillStyle = colour1;
 					} else {
 						mctx.fillStyle = colour2;
@@ -224,7 +224,7 @@
 			for (var i = 0; i < 7; i++){
 				for (var j = 0; j < 6; j++){
 					//Rows
-					if (i < 4 &&board[i][j] == board[i+1][j] && 
+					if (i < 4 && board[i][j] == board[i+1][j] && 
 								board[i][j] == board[i+2][j] && 
 								board[i][j] == board[i+3][j]){
 						board[i][j] = board[i+1][j] = board[i+2][j]=board[i+3][j]=board[i][j]+2;
@@ -251,6 +251,7 @@
 					}
 				}
 			}
+			return false;
 		}
 </script>
 

@@ -147,10 +147,10 @@
 		var w = 110;
 		var h = 110;
 		var i,j;
-		for (i = 5; i < 7; i++){
-			for (j=5; j < 6; j++){
+		for (i = 0; i < 7; i++){
+			for (j=0; j < 6; j++){
 				mctx.beginPath();
-				var x = i*w + w/2;
+				var x = i*w + w/2 - 5;
 				var y = j*h + h/2;
 				mctx.arc(x, y, 50, 2*Math.PI, false);
 				if (game.board[j][i] == 0){

@@ -63,6 +63,7 @@
 		var other = (side == 1) ? 2 : 1;
 		var col = -1;
 		var colour1 = "red";
+		var bgrd_col = "FFFF00";
 		var colour2 = "blue";
 		var game = {turn:1, 
 					board:
@@ -130,7 +131,7 @@
 		var moves = document.getElementById("plays");
 		var mctx = moves.getContext("2d");
 
-		bctx.fillStyle = "#FFFF00";
+		bctx.fillStyle = bgrd_col;
 		bctx.fillRect(0, 0, bgrd.width, bgrd.height);	
 
 		moves.addEventListener('click', function(event){
@@ -154,14 +155,18 @@
 					mctx.arc(x, y, 50, 2*Math.PI, false);
 					if (game.board[j][i] == 0){
 						mctx.fillStyle = (col == i) ? "grey" : "white";
-					} else if (game.board[j][i] == 1){
+					} else if (game.board[j][i]%2 == 1){
 						mctx.fillStyle = colour1;
 					} else {
 						mctx.fillStyle = colour2;
 					}
 					mctx.fill();
-				    mctx.lineWidth = 2;
-				    mctx.strokeStyle = '#FFFF00';
+				    mctx.lineWidth = 5;
+				    if (game.board[j][i] < 3){
+				    	mctx.strokeStyle = bgrd_col;
+				    } else {
+				    	mctx.strokeStyle = "#00ff00";
+				    }
 				    mctx.stroke();				
 				}
 			}
@@ -182,6 +187,7 @@
 						} else {
 							game.board[i][play] = 1
 						}
+						checkWin(i, play);
 						if (i == 0){
 							document.getElementById(play).disabled = true;
 						}
@@ -197,6 +203,56 @@
 			col = parseInt(str);
 		  	$('#msg').val(str);
 			drawPlays();
+		}
+
+		function checkWin(col row){
+			/*var max = 1;
+			var above = (col < 6) ? (col + 1) : col;
+			var below = (col > 0) ? (col - 1) : col;
+			var left = (row > 0) ? (row - 1) : row;
+			var right = (row < 5) ? (row + 1) : row;
+
+			var i = below;
+			var j = left;
+
+			for (i <= above; i++){
+				for (j <= right; j++){
+					if ()
+				}
+			}*/
+
+			var i = 0;
+			var j = 0;
+			for (i < 7; i++){
+				for (j < 6; j++){
+					//Rows
+					if (i < 4 &&board[i][j] == board[i+1][j] && 
+								board[i][j] == board[i+2][j] && 
+								board[i][j] == board[i+3][j]){
+						board[i][j] = board[i+1][j] = board[i+2][j]=board[i+3][j]=board[i][j]+2;
+						return true;
+					}
+					else if (i>2 && board[i][j] == board[i-1][j] && 
+									board[i][j] == board[i-2][j] && 
+									board[i][j] == board[i-3][j]){
+						board[i][j] = board[i-1][j] = board[i-1][j]=board[i-1][j]=board[i][j]+2;
+						return true;
+					}
+					//Cols
+					if (j < 3 && board[i][j] == board[i][j+1] && 
+								board[i][j] == board[i][j+2] && 
+								board[i][j] == board[i][j+3]){
+						board[i][j] = board[i][j+1] = board[i][j+2]=board[i][j+3]=board[i][j]+2;
+						return true;
+					}
+					else if (j > 3 && board[i][j] == board[i][j-1] && 
+								board[i][j] == board[i][j-2] && 
+								board[i][j] == board[i][j-3]){
+						board[i][j] = board[i][j-1] = board[i][j-2]=board[i][j-3]=board[i][j]+2;
+						return true;
+					}
+				}
+			}
 		}
 </script>
 

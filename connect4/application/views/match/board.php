@@ -120,7 +120,7 @@
 				col = -1;
 				drawPlays();
 				return false;
-			} else {
+			} else if (game.turn < 3) {
 				alert("It is not your turn!");
 				event.preventDefault();
 			}
@@ -150,7 +150,7 @@
 		for (i = 0; i < 7; i++){
 			for (j=0; j < 6; j++){
 				mctx.beginPath();
-				var x = i*w + w/2 - 5;
+				var x = i*w + w/2 - 50;
 				var y = j*h + h/2;
 				mctx.arc(x, y, 50, 2*Math.PI, false);
 				if (game.board[j][i] == 0){
@@ -190,6 +190,13 @@
 					checkWin(i, play);
 					if (i == 0){
 						document.getElementById(play).disabled = true;
+					}
+					if (game.turn > 2){
+						if (game.turn == side){
+							alert("You Win!");
+						} else {
+							alert("You Lose!");
+						}
 					}
 					break;
 				}
@@ -232,7 +239,7 @@
 						game.board[i+1][j] += 2;
 						game.board[i+2][j] += 2;
 						game.board[i+3][j] += 2;
-						game.turn = 0;
+						game.turn = game.board[i][j] += 2;
 					}
 					else if (i > 2 && game.board[i][j] == game.board[i-1][j] && 
 									game.board[i][j] == game.board[i-2][j] && 
@@ -241,7 +248,7 @@
 						game.board[i-1][j] += 2;
 						game.board[i-2][j] += 2;
 						game.board[i-3][j] += 2;
-						game.turn = 0;
+						game.turn = game.board[i][j] += 2;
 					}
 					//Rows
 					if (j < 4 && game.board[i][j] == game.board[i][j+1] && 
@@ -251,7 +258,7 @@
 						game.board[i][j+1] += 2;
 						game.board[i][j+2] += 2;
 						game.board[i][j+3] += 2;
-						game.turn = 0;
+						game.turn = game.board[i][j] += 2;
 					}
 					else if (j > 2 && game.board[i][j] == game.board[i][j-1] && 
 								game.board[i][j] == game.board[i][j-2] && 
@@ -260,7 +267,7 @@
 						game.board[i][j+1] += 2;
 						game.board[i][j+2] += 2;
 						game.board[i][j+3] += 2;
-						game.turn = 0;
+						game.turn = game.board[i][j] += 2;
 					}
 				}
 			}

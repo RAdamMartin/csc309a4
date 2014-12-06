@@ -57,9 +57,9 @@
 
 
 <?php
-foreach $matchHist as $var {
-	echo '<p>'.$var.'</p>';
-}
+//foreach $matchHist as $var {
+//	echo '<p>'.$var.'</p>';
+//}
 echo '<script>var matchHist = '.json_encode($matchHist) .';</script>';?>
 <script>
 	var otherUser = "<?= $otherUser->login ?>";

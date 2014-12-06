@@ -75,10 +75,6 @@
 				[0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0]]};
 
-	for (play in matchHist){
-		setPlay(play,game.turn);
-	}
-
 	//$(function(){
 		$('body').everyTime(2000,function(){
 				if (status == 'waiting') {
@@ -146,6 +142,10 @@
 			setCol(sel);
 		}
 	});
+
+	for (play in matchHist){
+		setPlay(play,game.turn);
+	}
 
 	function drawPlays(){
 		console.log("-->Drawing");

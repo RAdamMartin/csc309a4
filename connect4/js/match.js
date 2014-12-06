@@ -121,7 +121,7 @@ function checkWin(row, col){
 		}
 	}
 
-	var count = 1;
+	/*var count = 1;
 	var i = row-1;
 	var j = col+1;
 
@@ -166,7 +166,7 @@ function checkWin(row, col){
 				break;
 			}
 		}
-	}
+	}*/
 
 	for (var i = 0; i < 6; i++){
 		for (var j = 0; j < 7; j++){

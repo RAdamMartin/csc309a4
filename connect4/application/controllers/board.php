@@ -101,7 +101,7 @@ class Board extends CI_Controller {
  				goto transactionerror;
  			}
  			array_push($matchHist,$msg);
- 			$winner = $this->checkWin($matchHist);
+ 			//$winner = checkWin($matchHist);
  			if ($winner > 0){
  				log_message("Winner".winner);
  				$this->match_model->updateStatus($winner+1);

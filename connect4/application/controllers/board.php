@@ -101,7 +101,7 @@ class Board extends CI_Controller {
  				goto error;
  			}*/
  			array_push($matchHist,$msg);
- 			$this->match_model->updateBoardState($match->id, serialize(array(3,4,4,3)));
+ 			$this->match_model->updateBoardState($match->id, serialize($matchHist));
 	 		if ($this->db->trans_status() === FALSE) {
 	 			$errormsg = "Transaction error";
 	 			goto transactionerror;

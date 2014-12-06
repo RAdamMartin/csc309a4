@@ -26,12 +26,11 @@
 	</div>
 
 <?php 
-	$data = array('name'=> 'conversation', 'type' = 'hidden');
-	echo form_textarea($data);
+	echo form_textarea('conversation');
 	
 	echo form_open();
 	?>
-<input id="msg" type="text" name="msg" value=""></input>
+<input type="hidden" id="msg" type="text" name="msg" value=""></input>
 <?php
 	echo form_submit('Send','Send');
 

@@ -57,7 +57,7 @@
 
 </body>
 
-<script src="<?= base_url() ?>js/match.js"></script>
+<script src="<?= base_url() ?>/js/match.js"></script>
 
 </html>
 

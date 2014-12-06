@@ -56,11 +56,6 @@
 <button id="6" onclick="setCol('6')">SELECT PLAY</button>
 
 
-<?php
-foreach ($matchHist as $var) {
-	echo '<p>'.$var.'</p>';
-}
-echo '<script>var matchHist = '.json_encode($matchHist) .';</script>';?>
 <script>
 	var otherUser = "<?= $otherUser->login ?>";
 	var user = "<?= $user->login ?>";
@@ -148,10 +143,11 @@ echo '<script>var matchHist = '.json_encode($matchHist) .';</script>';?>
 		}
 	});
 
-	for (play in matchHist){
-		console.log("Play is " + play);
-		setPlay(play,game.turn);
-	}
+
+	<?php
+	foreach ($matchHist as $var) {
+		echo 'setPlay('.$var.',game.turn);'.$var.'</p>';
+	}?>
 
 	function drawPlays(){
 		console.log("-->Drawing");

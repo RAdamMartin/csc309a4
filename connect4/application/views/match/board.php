@@ -126,7 +126,7 @@ $('body').everyTime(2000,function(){
 			if (game.turn == side){
 				$('[name=statusMsg]').val("Select a play");
 			} else {
-				$('[name=statusMsg]').val($otherUser->login + "'s turn");
+				$('[name=statusMsg]').val(<?=$otherUser->login?> + "'s turn");
 			}
 		} else if (game.winner == 4){
 			$('[name=statusMsg]').val("Draw!");

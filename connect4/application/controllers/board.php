@@ -255,7 +255,7 @@ function checkWin($matchHist){
 	}
 
 	//NW-SE diag
-	for($i = 5; $i > 2; $i++){
+	for($i = 5; $i > 2; $i--){
 		for ($j = 0; $j < 4; $j++){
 			if ($p1[i][j] == 1 &&
 				$p1[i-1][j+1] == 1 &&

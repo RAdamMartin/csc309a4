@@ -108,7 +108,6 @@ $('body').everyTime(2000,function(){
 						foreach ($matchHist as $var) {
 							echo 'setPlay('.$var.',game.turn);';
 						}?>
-						drawPlays();
 					}
 					
 			});
@@ -157,6 +156,7 @@ $('form').submit(function(event){
 		event.preventDefault();
 	}
 });	
+drawPlays();
 </script>
 </html>
 

@@ -91,6 +91,7 @@ function checkWin(row, col){
 			while (count > 0){
 				i--;
 				j--;
+				console.log("Upping " + i + " " + j);
 				game.board[i][j] += 2;
 				count--;
 			}
@@ -111,6 +112,7 @@ function checkWin(row, col){
 			if (count == 4){
 				game.turn = game.board[i][j] += 2;
 				while (count > 0){
+					console.log("2Upping " + i + " " + j);
 					i++;
 					j++;
 					game.board[i][j] += 2;

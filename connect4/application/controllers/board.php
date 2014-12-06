@@ -32,7 +32,7 @@ class Board extends CI_Controller {
 	    	if ($user->user_status_id == User::WAITING) {
 	    		$invite = $this->invite_model->get($user->invite_id);
 	    		$otherUser = $this->user_model->getFromId($invite->user2_id);
-	    		$matchHist = array(1,2,3,2,3,4,3,4,5,4,5,4,5,4,6,7,6);
+	    		$matchHist = array();
 	    		$data['matchHist'] = $matchHist;
 	    		$data['side'] = 2;
 	    	}

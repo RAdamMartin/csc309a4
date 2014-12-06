@@ -37,7 +37,7 @@
 	echo form_close();
 	
 ?>
-<p id="status" name="statusMsg"></p>
+<p id="statusMsg" name="statusMsg">TEST</p>
 <br>
 
 	<div class="gameArea" style="position:relative; width:780px; height:670px">

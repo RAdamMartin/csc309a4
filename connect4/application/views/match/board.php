@@ -104,6 +104,11 @@ $('body').everyTime(2000,function(){
 					if (data && data.status=='accepted') {
 						status = 'playing';
 						$('#status').html('Playing ' + otherUser);
+						<?php
+						foreach ($matchHist as $var) {
+							echo 'setPlay('.$var.',game.turn);';
+						}?>
+						drawPlays();
 					}
 					
 			});
@@ -152,11 +157,6 @@ $('form').submit(function(event){
 		event.preventDefault();
 	}
 });	
-<?php
-foreach ($matchHist as $var) {
-	echo 'setPlay('.$var.',game.turn);';
-}?>
-drawPlays();
 </script>
 </html>
 

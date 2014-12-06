@@ -82,18 +82,17 @@ class Board extends CI_Controller {
  				goto error;
  			}
  			
- 			$match = $this->match_model->get($user->match_id);	
+ 			$this->db->trans_begin();
+	 		$match = $this->match_model->getExclusive($user->match_id);			
  			$matchHist = unserialize($match->board_state);
     		 			
  			$msg = $this->input->post('msg');
  			
  			if ($match->user1_id == $user->id){// && count($matchHist)%2 == 0)  {
- 				$this->db->trans_begin();
  				$msg = $match->u1_msg == ''? $msg :  $match->u1_msg . "\n" . $msg;
  				$this->match_model->updateMsgU1($match->id, $msg);
  			}
  			else{ //if (count($matchHist)%2 == 1){
- 				$this->db->trans_begin();
  				$msg = $match->u2_msg == ''? $msg :  $match->u2_msg . "\n" . $msg;
  				$this->match_model->updateMsgU2($match->id, $msg);
  			}

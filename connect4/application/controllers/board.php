@@ -70,6 +70,7 @@ class Board extends CI_Controller {
  		$errormsg="Bad argument";
 
  		if ($this->form_validation->run() == TRUE) {
+ 			log_message('error', 'Entered if.');
  			$this->load->model('user_model');
  			$this->load->model('match_model');
 

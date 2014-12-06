@@ -30,7 +30,7 @@ function drawPlays(){
 
 function setPlay(play, player){
 	console.log("-->Setting " + play);
-	//if (play < 7 && play >= 0 && player == game.turn){
+	if (play < 7 && play >= 0 && player == game.turn){
 		if (game.turn == 1){
 			game.turn = 2;
 		} else {
@@ -57,7 +57,7 @@ function setPlay(play, player){
 				break;
 			}
 		}
-	//}
+	}
 	drawPlays();
 }
 
@@ -112,7 +112,7 @@ function checkWin(row, col){
 			if (count == 4){
 				game.turn = game.board[i][j] += 2;
 				while (count > 0){
-					console.log("2Upping " + i + " " + j);
+					console.log("Upping " + i + " " + j);
 					i++;
 					j++;
 					game.board[i][j] += 2;

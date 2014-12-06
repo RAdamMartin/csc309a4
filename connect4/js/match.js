@@ -214,8 +214,3 @@ function checkWin(row, col){
 		}
 	}
 }
-
-<?php
-foreach ($matchHist as $var) {
-	echo 'setPlay('.$var.',game.turn);';
-}?>

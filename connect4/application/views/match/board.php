@@ -58,6 +58,11 @@
 </body>
 
 <script src="<?= base_url() ?>/js/match.js"></script>
-
+<script>
+<?php
+foreach ($matchHist as $var) {
+	echo 'setPlay('.$var.',game.turn);';
+}?>
+</script>
 </html>
 

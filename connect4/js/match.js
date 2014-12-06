@@ -72,16 +72,99 @@ function checkWin(row, col){
 	var above = (col < 6) ? (col + 1) : col;
 	var below = (col > 0) ? (col - 1) : col;
 	var left = (row > 0) ? (row - 1) : row;
-	var right = (row < 5) ? (row + 1) : row;
+	var right = (row < 5) ? (row + 1) : row;*/
 
-	var i = below;
-	var j = left;
+	var count = 1;
+	var i = row+1;
+	var j = col+1;
 
-	for (i <= above; i++){
-		for (j <= right; j++){
-			if ()
+	while(i <5 && j <6){
+		if (game.board[i][j] == game.board[row][col]){
+			count++;
+			i++;
+			j++;
+		} else {
+			break;
 		}
-	}*/
+		if (count == 4){
+			game.turn = game.board[i][j] += 2;
+			while (count > 0){
+				game.board[i][j] += 2;
+				i--;
+				j--;
+				count--;
+			}
+			break;
+		}
+	}
+	if (count != 0){
+		i = row-1;
+		j = col-1;
+		while(i >=0 && j >=0){
+			if (game.board[i][j] == game.board[row][col]){
+				count++;
+				i--;
+				j--;
+			} else {
+				break;
+			}
+			if (count == 4){
+				game.turn = game.board[i][j] += 2;
+				while (count > 0){
+					game.board[i][j] += 2;
+					i++;
+					j++;
+					count--;
+				}
+			}
+		}
+	}
+
+	var count = 1;
+	var i = row-1;
+	var j = col+1;
+
+	while(i <5 && j <6){
+		if (game.board[i][j] == game.board[row][col]){
+			count++;
+			i--;
+			j++;
+		} else {
+			break;
+		}
+		if (count == 4){
+			game.turn = game.board[i][j] += 2;
+			while (count > 0){
+				game.board[i][j] += 2;
+				i++;
+				j--;
+				count--;
+			}
+			break;
+		}
+	}
+	if (count != 0){
+		i = row+1;
+		j = col-1;
+		while(i >=0 && j >=0){
+			if (game.board[i][j] == game.board[row][col]){
+				count++;
+				i++;
+				j--;
+			} else {
+				break;
+			}
+			if (count == 4){
+				game.turn = game.board[i][j] += 2;
+				while (count > 0){
+					game.board[i][j] += 2;
+					i--;
+					j++;
+					count--;
+				}
+			}
+		}
+	}
 
 	for (var i = 0; i < 6; i++){
 		for (var j = 0; j < 7; j++){

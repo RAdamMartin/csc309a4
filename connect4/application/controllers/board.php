@@ -36,13 +36,13 @@ class Board extends CI_Controller {
 	    	}
 	    	else if ($user->user_status_id == User::PLAYING) {
 	    		$match = $this->match_model->get($user->match_id);
+    			$matchHist = unserialize($match->board_state);
+    			$data['matchHist'] = $matchHist;
 	    		if ($match->user1_id == $user->id){
 	    			$data['side'] = 1;
-	    			$data['matchHist'] = array(3,4,4,3);
 	    			$otherUser = $this->user_model->getFromId($match->user2_id);
 	    		} else {
 	    			$otherUser = $this->user_model->getFromId($match->user1_id);
-	    			$data['matchHist'] = array(3,4,4,3);
 	    			$data['side'] = 2;
 	    		}
 	    	}

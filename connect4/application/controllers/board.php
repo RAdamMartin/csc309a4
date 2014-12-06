@@ -88,7 +88,7 @@ class Board extends CI_Controller {
     		 			
  			$msg = $this->input->post('msg');
  			
- 			if ($match->user1_id == $user->id) && count($matchHist)%2 == 0)  {
+ 			if ($match->user1_id == $user->id && count($matchHist)%2 == 0)  {
  				$msg = $match->u1_msg == ''? $msg :  $match->u1_msg . "\n" . $msg;
  				$this->match_model->updateMsgU1($match->id, $msg);
  			}

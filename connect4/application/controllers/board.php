@@ -64,8 +64,9 @@ class Board extends CI_Controller {
 
  	function postMsg() {
  		$this->load->library('form_validation');
- 		$this->form_validation->set_rules('msg', 'Message', 'required');
- 		
+ 		$this->form_validation->set_rules('msg', 'Message', 'required|max_length[1]|is_natural|less_than[7]');
+ 		$errormsg="Bad argument";
+
  		if ($this->form_validation->run() == TRUE) {
  			$this->load->model('user_model');
  			$this->load->model('match_model');
@@ -78,25 +79,43 @@ class Board extends CI_Controller {
  				goto error;
  			}
  			
- 			$match = $this->match_model->get($user->match_id);			
- 			
+ 			$match = $this->match_model->get($user->match_id);	
+ 			$matchHist = unserialize($match->board_state);
+    		 			
  			$msg = $this->input->post('msg');
  			
- 			if ($match->user1_id == $user->id)  {
+ 			if ($match->user1_id == $user->id && count($matchHist)%2 == 0)  {
+ 				$this->db->trans_begin();
  				$msg = $match->u1_msg == ''? $msg :  $match->u1_msg . "\n" . $msg;
  				$this->match_model->updateMsgU1($match->id, $msg);
  			}
- 			else {
+ 			else if (count($matchHist)%2 == 1){
+ 				$this->db->trans_begin();
  				$msg = $match->u2_msg == ''? $msg :  $match->u2_msg . "\n" . $msg;
  				$this->match_model->updateMsgU2($match->id, $msg);
  			}
- 				
- 			echo json_encode(array('status'=>'success'));
- 			 
- 			return;
+ 			else {
+ 				$errormsg="Not your turn";
+ 				goto error;
+ 			}
+ 			array_push($matchHist,$msg);
+ 			$this->match_model->updateBoardState($match->id, serialize($matchHist));
+	 		if ($this->db->trans_status() === FALSE) {
+	 			$errormsg = "Transaction error";
+	 			goto transactionerror;
+	 		}
+	 		
+	 		// if all went well commit changes
+	 		$this->db->trans_commit();
+	 		
+	 		echo json_encode(array('status'=>'success'));
+			return;
+			
+			transactionerror:
+				$this->db->trans_rollback();	
  		}
 		
- 		$errormsg="Missing argument";
+
  		
 		error:
 			echo json_encode(array('status'=>'failure','message'=>$errormsg));

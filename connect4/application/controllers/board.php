@@ -88,18 +88,18 @@ class Board extends CI_Controller {
     		 			
  			$msg = $this->input->post('msg');
  			
- 			if ($match->user1_id == $user->id){// && count($matchHist)%2 == 0)  {
+ 			if ($match->user1_id == $user->id) && count($matchHist)%2 == 0)  {
  				$msg = $match->u1_msg == ''? $msg :  $match->u1_msg . "\n" . $msg;
  				$this->match_model->updateMsgU1($match->id, $msg);
  			}
- 			else{ //if (count($matchHist)%2 == 1){
+ 			else (count($matchHist)%2 == 1){
  				$msg = $match->u2_msg == ''? $msg :  $match->u2_msg . "\n" . $msg;
  				$this->match_model->updateMsgU2($match->id, $msg);
  			}
- 			/*else {
+ 			else {
  				$errormsg="Not your turn";
  				goto error;
- 			}*/
+ 			}
  			array_push($matchHist,$msg);
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));
 	 		if ($this->db->trans_status() === FALSE) {

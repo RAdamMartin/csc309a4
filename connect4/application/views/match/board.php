@@ -134,7 +134,7 @@ $('body').everyTime(2000,function(){
 });
 
 $('form').submit(function(event){
-	if (game.turn == side){
+	//if (game.turn == side){
 		var msg = $('[name=msg]').val();
 		setPlay(parseInt(msg), side);
 		var arguments = $(this).serialize();
@@ -147,10 +147,10 @@ $('form').submit(function(event){
 		col = -1;
 		drawPlays();
 		return false;
-	} else if (game.turn < 3) {
-		alert("It is not your turn!");
-		event.preventDefault();
-	}
+	//} else if (game.turn < 3) {
+	//	alert("It is not your turn!");
+	//	event.preventDefault();
+	//}
 });	
 <?php
 foreach ($matchHist as $var) {

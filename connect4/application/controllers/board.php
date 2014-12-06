@@ -101,6 +101,10 @@ class Board extends CI_Controller {
  				goto transactionerror;
  			}
  			array_push($matchHist,$msg);
+ 			$winner = $this->checkWin($matchHist);
+ 			if ($winner > 0){
+ 				$this->match_model->updateStatus($winner+1);
+ 			}
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));
 	 		if ($this->db->trans_status() === FALSE) {
 	 			$errormsg = "Transaction error";
@@ -110,7 +114,7 @@ class Board extends CI_Controller {
 	 		// if all went well commit changes
 	 		$this->db->trans_commit();
 	 		
-	 		echo json_encode(array('status'=>'success'));
+	 		echo json_encode(array('status'=>'success', 'winner'=>$winner));
 			return;
 			
 			transactionerror:
@@ -157,7 +161,7 @@ class Board extends CI_Controller {
  		// if all went well commit changes
  		$this->db->trans_commit();
  		
- 		echo json_encode(array('status'=>'success','message'=>$msg));
+ 		echo json_encode(array('status'=>'success','message'=>$msg, 'winner'=>$match->$match_status_id-1));
 		return;
 		
 		transactionerror:
@@ -169,3 +173,108 @@ class Board extends CI_Controller {
 
  }
 
+function checkWin($matchHist){
+	$r = array(0,0,0,0,0,0,0);
+	$p1 = array($r,$r,$r,$r,$r,$r);
+	$p2 = array($r,$r,$r,$r,$r,$r);
+	$turn = 1;
+	foreach ($matchHist as $play){
+		if ($turn%2 == 1){
+			$p1[$r[$play]][$play] = 1;
+		} else {
+			$p2[$r[$play]][$play] = 1;
+		}
+		$r[$play]++;
+		$turn++;
+	}
+	$count1 = 0;
+	$count2 = 0;
+
+	//Rows
+	for($i = 0; $i < 6; $i++){
+		for ($j = 0; $j < 7; $j++){
+			if($p1[i][j] == 1){
+				$count1++;
+			} else {
+				$count1 = 0;
+			}
+
+			if($p2[i][j] == 1){
+				$count2++;
+			} else {
+				$count2 = 0;
+			}
+			if ($count1 == 4){
+				return 1;
+			} else if ($count2 == 4){
+				return 2;
+			}
+		}
+	}
+
+	//Cols
+	$count1 = 0;
+	$count2 = 0;
+	for($i = 0; $i < 7; $i++){
+		for ($j = 0; $j < 6; $j++){
+			if($p1[j][i] == 1){
+				$count1++;
+			} else {
+				$count1 = 0;
+			}
+
+			if($p2[j][i] == 1){
+				$count2++;
+			} else {
+				$count2 = 0;
+			}
+			if ($count1 == 4){
+				return 1;
+			} else if ($count2 == 4){
+				return 2;
+			}
+		}
+	}
+
+	//SW-NE diag
+	for($i = 0; $i < 3; $i++){
+		for ($j = 0; $j < 4; $j++){
+			if ($p1[i][j] == 1 &&
+				$p1[i+1][j+1] == 1 &&
+				$p1[i+2][j+2] == 1 &&
+				$p1[i+3][j+3] == 1){
+				return 1;
+			} 
+			if ($p2[i][j] == 1 &&
+				$p2[i+1][j+1] == 1 &&
+				$p2[i+2][j+2] == 1 &&
+				$p2[i+3][j+3] == 1){
+				return 2;
+			} 
+		}
+	}
+
+	//NW-SE diag
+	for($i = 5; $i > 2; $i++){
+		for ($j = 0; $j < 4; $j++){
+			if ($p1[i][j] == 1 &&
+				$p1[i-1][j+1] == 1 &&
+				$p1[i-2][j+2] == 1 &&
+				$p1[i-3][j+3] == 1){
+				return 1;
+			} 
+			if ($p2[i][j] == 1 &&
+				$p2[i-1][j+1] == 1 &&
+				$p2[i-2][j+2] == 1 &&
+				$p2[i-3][j+3] == 1){
+				return 2;
+			} 
+		}
+	}
+
+	if ($turn == 42){
+		return 3;
+	} else{
+		return 0;
+	}
+}

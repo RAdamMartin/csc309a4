@@ -113,6 +113,7 @@ $('body').everyTime(2000,function(){
 			if (data && data.status=='success') {
 				var conversation = $('[name=conversation]').val();
 				var msg = data.message;
+				game.winner = data.winner;
 				if (msg!= null && msg.length > 0){
 					console.log("Received: " + msg);
 					$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
@@ -141,6 +142,7 @@ $('form').submit(function(event){
 		var url = "<?= base_url() ?>board/postMsg";
 		$.post(url,arguments, function (data,textStatus,jqXHR){
 				var conversation = $('[name=conversation]').val();
+				game.winner = data.winner;
 				$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 				});
 		$('[name=msg]').val("select play");

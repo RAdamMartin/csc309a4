@@ -32,6 +32,7 @@ class Board extends CI_Controller {
 	    	if ($user->user_status_id == User::WAITING) {
 	    		$invite = $this->invite_model->get($user->invite_id);
 	    		$otherUser = $this->user_model->getFromId($invite->user2_id);
+	    		$data['matchHist'] = array(1,2,3,2,3,4,3,4,5,4,5,4,5,4,6,7,6);
 	    		$data['side'] = 2;
 	    	}
 	    	else if ($user->user_status_id == User::PLAYING) {
@@ -64,7 +65,7 @@ class Board extends CI_Controller {
 
  	function postMsg() {
  		$this->load->library('form_validation');
- 		$this->form_validation->set_rules('msg', 'Message', 'required|max_length[1]|is_natural|less_than[7]');
+ 		$this->form_validation->set_rules('msg', 'Message', 'required|is_natural|less_than[7]');
  		$errormsg="Bad argument";
 
  		if ($this->form_validation->run() == TRUE) {

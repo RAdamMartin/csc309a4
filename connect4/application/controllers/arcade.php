@@ -159,7 +159,7 @@ class Arcade extends CI_Controller {
 
 		switch($invite->invite_status_id) {
 			case Invite::ACCEPTED:
-				echo json_encode(array('status'=>'accepted'));
+				echo json_encode(array('status'=>'accepted', 'matchHist'=>array());
 				break;
 			case Invite::PENDING:
 				echo json_encode(array('status'=>'pending'));

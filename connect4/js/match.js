@@ -74,9 +74,9 @@ function checkWin(row, col){
 	var left = (row > 0) ? (row - 1) : row;
 	var right = (row < 5) ? (row + 1) : row;*/
 
-	var count = 1;
-	var i = row+1;
-	var j = col+1;
+	var count = 0;
+	var i = row;
+	var j = col;
 
 	while(i <5 && j <6){
 		if (game.board[i][j] == game.board[row][col]){
@@ -97,9 +97,9 @@ function checkWin(row, col){
 			break;
 		}
 	}
-	if (count != 0){
-		i = row-1;
-		j = col-1;
+	if (game.turn < 3){
+		i = row;
+		j = col;
 		while(i >=0 && j >=0){
 			if (game.board[i][j] == game.board[row][col]){
 				count++;
@@ -120,9 +120,9 @@ function checkWin(row, col){
 		}
 	}
 
-	var count = 1;
-	var i = row-1;
-	var j = col+1;
+	var count = 0;
+	var i = row;
+	var j = col;
 
 	while(i >=0 && j <6){
 		if (game.board[i][j] == game.board[row][col]){
@@ -143,9 +143,9 @@ function checkWin(row, col){
 			break;
 		}
 	}
-	if (count != 0){
-		i = row+1;
-		j = col-1;
+	if (game.turn < 3){
+		i = row;
+		j = col;
 		while(i<5 && j >=0){
 			if (game.board[i][j] == game.board[row][col]){
 				count++;
@@ -168,8 +168,8 @@ function checkWin(row, col){
 
 	for (var i = 0; i < 6; i++){
 		for (var j = 0; j < 7; j++){
-			//Cols
 			if (game.board[i][j] > 0){
+				//Cols
 				if (i < 3 && game.board[i][j] == game.board[i+1][j] && 
 							game.board[i][j] == game.board[i+2][j] && 
 							game.board[i][j] == game.board[i+3][j]){

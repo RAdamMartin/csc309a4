@@ -100,8 +100,8 @@ class Board extends CI_Controller {
  				$errormsg="Not your turn";
  				goto error;
  			}*/
- 			//array_push($matchHist,$msg);
- 			//$this->match_model->updateBoardState($match->id, serialize($matchHist));
+ 			array_push($matchHist,$msg);
+ 			$this->match_model->updateBoardState($match->id, serialize(array(3,4,4,3)));
 	 		if ($this->db->trans_status() === FALSE) {
 	 			$errormsg = "Transaction error";
 	 			goto transactionerror;

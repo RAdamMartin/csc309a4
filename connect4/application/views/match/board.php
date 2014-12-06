@@ -143,11 +143,6 @@
 		}
 	});
 
-	for (play in matchHist){
-		console.log("Play is " + play);
-		setPlay(play,game.turn);
-	}
-
 	function drawPlays(){
 		console.log("-->Drawing");
 		var w = 110;

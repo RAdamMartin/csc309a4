@@ -143,12 +143,6 @@
 		}
 	});
 
-
-	<?php
-	foreach ($matchHist as $var) {
-		echo 'setPlay('.$var.',game.turn);'.$var.'</p>';
-	}?>
-
 	function drawPlays(){
 		console.log("-->Drawing");
 		var w = 110;
@@ -280,6 +274,11 @@
 			}
 		}
 	}
+
+	<?php
+	foreach ($matchHist as $var) {
+		echo 'setPlay('.$var.',game.turn);'.$var.'</p>';
+	}?>
 </script>
 
 </body>

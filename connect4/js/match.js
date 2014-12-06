@@ -116,6 +116,7 @@ function checkWin(row, col){
 					game.board[i][j] += 2;
 					count--;
 				}
+				break;
 			}
 		}
 	}
@@ -162,6 +163,7 @@ function checkWin(row, col){
 					game.board[i][j] += 2;
 					count--;
 				}
+				break;
 			}
 		}
 	}

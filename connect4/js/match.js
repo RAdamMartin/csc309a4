@@ -124,7 +124,7 @@ function checkWin(row, col){
 	var i = row-1;
 	var j = col+1;
 
-	while(i <5 && j <6){
+	while(i >=0 && j <6){
 		if (game.board[i][j] == game.board[row][col]){
 			count++;
 			i--;
@@ -146,7 +146,7 @@ function checkWin(row, col){
 	if (count != 0){
 		i = row+1;
 		j = col-1;
-		while(i >=0 && j >=0){
+		while(i<5 && j >=0){
 			if (game.board[i][j] == game.board[row][col]){
 				count++;
 				i++;

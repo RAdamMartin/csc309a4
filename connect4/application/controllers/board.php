@@ -92,13 +92,13 @@ class Board extends CI_Controller {
  				$msg = $match->u1_msg == ''? $msg :  $match->u1_msg . "\n" . $msg;
  				$this->match_model->updateMsgU1($match->id, $msg);
  			}
- 			elseif (count($matchHist)%2 == 1){
+ 			else if (count($matchHist)%2 == 1){
  				$msg = $match->u2_msg == ''? $msg :  $match->u2_msg . "\n" . $msg;
  				$this->match_model->updateMsgU2($match->id, $msg);
  			}
  			else {
  				$errormsg="Not your turn";
- 				goto error;
+ 				goto transactionerror;
  			}
  			array_push($matchHist,$msg);
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));

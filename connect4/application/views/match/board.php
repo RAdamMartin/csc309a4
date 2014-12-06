@@ -55,7 +55,11 @@
 <button id="5" onclick="setCol('5')">SELECT PLAY</button>
 <button id="6" onclick="setCol('6')">SELECT PLAY</button>
 
-<?php echo '<script>var matchHist = '.json_encode($matchHist) .';</script>';?>
+
+<?php
+for $var in $matchHist 
+echo '<p>'.$var.'</p>';
+echo '<script>var matchHist = '.json_encode($matchHist) .';</script>';?>
 <script>
 	var otherUser = "<?= $otherUser->login ?>";
 	var user = "<?= $user->login ?>";

@@ -38,11 +38,11 @@ class Board extends CI_Controller {
 	    		$match = $this->match_model->get($user->match_id);
 	    		if ($match->user1_id == $user->id){
 	    			$data['side'] = 1;
-	    			$data['matchHist'] = array(3,4,3,4);
+	    			$data['matchHist'] = array(3,4,4,3);
 	    			$otherUser = $this->user_model->getFromId($match->user2_id);
 	    		} else {
 	    			$otherUser = $this->user_model->getFromId($match->user1_id);
-	    			$data['matchHist'] = array(3,4,3,4);
+	    			$data['matchHist'] = array(3,4,4,3);
 	    			$data['side'] = 2;
 	    		}
 	    	}

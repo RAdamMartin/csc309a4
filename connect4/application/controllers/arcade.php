@@ -81,6 +81,7 @@ class Arcade extends CI_Controller {
 	    $match = new Match();
 	    $match->user1_id = $user->id;
 	    $match->user2_id = $hostUser->id;
+	    $match->board_state = serialize(array(3,4,4,3));
 	    $this->match_model->insert($match);
 	    $matchId = mysql_insert_id();
 
@@ -93,7 +94,7 @@ class Arcade extends CI_Controller {
 	     
 	    
 	    if ($this->db->trans_status() === FALSE)
-	    		goto transactionerror;
+	    	goto transactionerror;
 	    
 	    // if all went well commit changes
 	    $this->db->trans_commit();

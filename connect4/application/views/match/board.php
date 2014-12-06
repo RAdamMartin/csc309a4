@@ -55,6 +55,7 @@
 <button id="5" onclick="setCol('5')">SELECT PLAY</button>
 <button id="6" onclick="setCol('6')">SELECT PLAY</button>
 
+<?php echo '<script>var matchHist = '.json_encode($matchHist) .';</script>';?>
 <script>
 	var otherUser = "<?= $otherUser->login ?>";
 	var user = "<?= $user->login ?>";
@@ -73,6 +74,10 @@
 				[0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0]]};
+
+	for (play in matchHist){
+		setPlay(play,game.turn);
+	}
 
 	//$(function(){
 		$('body').everyTime(2000,function(){

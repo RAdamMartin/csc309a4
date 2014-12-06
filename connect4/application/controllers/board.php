@@ -89,7 +89,7 @@ class Board extends CI_Controller {
  				$msg = $match->u1_msg == ''? $msg :  $match->u1_msg . "\n" . $msg;
  				$this->match_model->updateMsgU1($match->id, $msg);
  			}
- 			else //if (count($matchHist)%2 == 1){
+ 			else{ //if (count($matchHist)%2 == 1){
  				$this->db->trans_begin();
  				$msg = $match->u2_msg == ''? $msg :  $match->u2_msg . "\n" . $msg;
  				$this->match_model->updateMsgU2($match->id, $msg);

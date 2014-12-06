@@ -114,7 +114,8 @@ class Board extends CI_Controller {
 			return;
 			
 			transactionerror:
-				$this->db->trans_rollback();	
+			log_message('error', 'Some variable did not contain a value.');
+			$this->db->trans_rollback();	
  		}
 		
 

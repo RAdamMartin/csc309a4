@@ -26,7 +26,8 @@
 	</div>
 
 <?php 
-	echo form_textarea('conversation');
+	$data = array('name'=> 'conversation', 'type' = 'hidden');
+	echo form_textarea($data);
 	
 	echo form_open();
 	?>
@@ -37,7 +38,7 @@
 	echo form_close();
 	
 ?>
-	
+<p id="status" name="statusMsg"></p>
 <br>
 
 	<div class="gameArea" style="position:relative; width:780px; height:670px">
@@ -68,7 +69,8 @@ var col = -1;
 var colour1 = "red";
 var bgrd_col = "#FFFF00";
 var colour2 = "blue";
-var game = {turn:1, 
+var game = {turn:1,
+			winner:0, 
 			board:
 			[[0,0,0,0,0,0,0],
 			[0,0,0,0,0,0,0],
@@ -121,7 +123,15 @@ $('body').everyTime(2000,function(){
 				}
 			}
 		});
-		console.log("looping");
+		if(game.winner == 0){
+			if (game.turn == side){
+				$('[name=statusMsg]').val("Select a play");
+			} else {
+				$('[name=statusMsg]').val($otherUser->login + "'s turn");
+			}
+		} else if (game.winner == 4){
+			$('[name=statusMsg]').val("Draw!");
+		}
 });
 
 $('form').submit(function(event){
@@ -147,6 +157,7 @@ $('form').submit(function(event){
 foreach ($matchHist as $var) {
 	echo 'setPlay('.$var.',game.turn);';
 }?>
+drawPlays();
 </script>
 </html>
 

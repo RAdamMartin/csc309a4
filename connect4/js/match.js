@@ -60,7 +60,6 @@ function setPlay(play, player){
 	}
 	drawPlays();
 }
-drawPlays();
 
 function setCol (str) {
 	col = parseInt(str);

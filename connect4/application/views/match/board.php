@@ -95,50 +95,65 @@ moves.addEventListener('click', function(event){
 	}
 });
 
+if(game.winner == 0){
+	console.log("wtf");
+	if (game.turn == side){
+		$('[name=statusMsg]').html("Select a play");
+	} else {
+		$('[name=statusMsg]').html("<?=$otherUser->login?>'s turn");
+	}
+} else if (game.winner == 3){
+	$('[name=statusMsg]').html("Draw!");
+} else if (game.winner == side){
+	$('[name=statusMsg]').html("You win!");
+} else {
+	$('[name=statusMsg]').html("You lose!");
+}
+
 $('body').everyTime(2000,function(){
-		if (status == 'waiting') {
-			$.getJSON('<?= base_url() ?>arcade/checkInvitation',function(data, text, jqZHR){
-					if (data && data.status=='rejected') {
-						alert("Sorry, your invitation to play was declined!");
-						window.location.href = '<?= base_url() ?>arcade/index';
-					}
-					if (data && data.status=='accepted') {
-						status = 'playing';
-						$('#status').html('Playing ' + otherUser);
-					}
-					
-			});
-		}
-		if(game.winner == 0){
-			console.log("wtf");
-			if (game.turn == side){
-				$('[name=statusMsg]').html("Select a play");
-			} else {
-				$('[name=statusMsg]').html("<?=$otherUser->login?>'s turn");
-			}
-		} else if (game.winner == 3){
-			$('[name=statusMsg]').html("Draw!");
-		} else if (game.winner == side){
-			$('[name=statusMsg]').html("You win!");
-		} else {
-			$('[name=statusMsg]').html("You lose!");
-		}
-		var url = "<?= base_url() ?>board/getMsg";
-		$.getJSON(url, function (data,text,jqXHR){
-			if (data && data.status=='success') {
-				var conversation = $('[name=conversation]').val();
-				var msg = data.message;
-				game.winner = data.winner;
-				$('[name=winner]').val(game.winner);
-				if (msg!= null && msg.length > 0){
-					console.log("Received: " + msg);
-					$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
-					console.log("setting play for " + other + " in col " + msg);
-					setPlay(parseInt(msg), other);
-					drawPlays();	
+	if (status == 'waiting') {
+		$.getJSON('<?= base_url() ?>arcade/checkInvitation',function(data, text, jqZHR){
+				if (data && data.status=='rejected') {
+					alert("Sorry, your invitation to play was declined!");
+					window.location.href = '<?= base_url() ?>arcade/index';
 				}
-			}
+				if (data && data.status=='accepted') {
+					status = 'playing';
+					$('#status').html('Playing ' + otherUser);
+				}
+				
 		});
+	}
+	var url = "<?= base_url() ?>board/getMsg";
+	$.getJSON(url, function (data,text,jqXHR){
+		if (data && data.status=='success') {
+			var conversation = $('[name=conversation]').val();
+			var msg = data.message;
+			game.winner = data.winner;
+			$('[name=winner]').val(game.winner);
+			if (msg!= null && msg.length > 0){
+				console.log("Received: " + msg);
+				$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
+				console.log("setting play for " + other + " in col " + msg);
+				setPlay(parseInt(msg), other);
+				drawPlays();	
+			}
+		}
+	});
+	if(game.winner == 0){
+		console.log("wtf");
+		if (game.turn == side){
+			$('[name=statusMsg]').html("Select a play");
+		} else {
+			$('[name=statusMsg]').html("<?=$otherUser->login?>'s turn");
+		}
+	} else if (game.winner == 3){
+		$('[name=statusMsg]').html("Draw!");
+	} else if (game.winner == side){
+		$('[name=statusMsg]').html("You win!");
+	} else {
+		$('[name=statusMsg]').html("You lose!");
+	}
 });
 
 $('form').submit(function(event){

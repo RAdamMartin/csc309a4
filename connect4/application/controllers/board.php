@@ -205,7 +205,6 @@ function checkWin($matchHist){
 		for ($j = 0; $j < 7; $j++){
 			log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j].', counts:'.$count1.','.$count2);
 			if($p1[$i][$j] == 1){
-				log_message('debug', '[And in 1');
 				$count1++;
 			} else {
 				$count1 = 0;

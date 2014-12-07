@@ -165,8 +165,8 @@ $('form').submit(function(event){
 		var url = "<?= base_url() ?>board/postMsg";
 		$.post(url,arguments, function (data,textStatus,jqXHR){
 				var conversation = $('[name=conversation]').val();
-				console.log("2setting winner to "+data.winner);
-				game.winner = data.winner;
+				//console.log("2setting winner to "+data.winner);
+				//game.winner = data.winner;
 				$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 				});
 		$('[name=msg]').val("select play");

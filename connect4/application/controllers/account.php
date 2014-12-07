@@ -54,7 +54,7 @@ class Account extends CI_Controller {
 				$data['errorMsg']='Incorrect username or password!';
  				$this->load->view('account/loginForm',$data);
  			}
-    		}
+    	}
     }
 
     function logout() {

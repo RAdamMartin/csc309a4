@@ -13,7 +13,7 @@
 	<h1>Game Area</h1>
 
 	<div>
-	Hello <?= $user->fullName() ?>  <?= anchor('account/logout','(Logout)') ?>  
+	Hello <?= $user->fullName() ?>  <?= anchor('account/logout','(Logout)') ?> <?= anchor('arcade/index','(Home)') ?> 
 	</div>
 	
 	<div id='status'> 

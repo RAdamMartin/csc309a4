@@ -19,12 +19,12 @@ class Arcade extends CI_Controller {
        
     
     function index() {
-		    	$data['user']=$_SESSION['user'];
-		    	if (isset($_SESSION['errmsg'])) {
-		    		$data['errmsg']=	$_SESSION['errmsg'];
-		    		unset($_SESSION['errmsg']);
-		    	}
-		    	$this->load->view('arcade/mainPage',$data);
+    	$data['user']=$_SESSION['user'];
+    	if (isset($_SESSION['errmsg'])) {
+    		$data['errmsg']=	$_SESSION['errmsg'];
+    		unset($_SESSION['errmsg']);
+    	}
+    	$this->load->view('arcade/mainPage',$data);
     }
 
     function getAvailableUsers() {
@@ -57,14 +57,14 @@ class Arcade extends CI_Controller {
     }
     
     function acceptInvitation() {
-	    	$user = $_SESSION['user'];
-	    	 
-	    	$this->load->model('user_model');
-	    	$this->load->model('invite_model');
-	    	$this->load->model('match_model');
-	    	
-	    	
-	    	$user = $this->user_model->get($user->login);
+    	$user = $_SESSION['user'];
+    	 
+    	$this->load->model('user_model');
+    	$this->load->model('invite_model');
+    	$this->load->model('match_model');
+    	
+    	
+    	$user = $this->user_model->get($user->login);
 	    	
 	    $invite = $this->invite_model->get($user->invite_id);
 	    $hostUser = $this->user_model->getFromId($invite->user1_id);

@@ -10,7 +10,7 @@ function drawPlays(){
 			var y = j*h + h/2;
 			mctx.arc(x, y, 50, 2*Math.PI, false);
 			if (game.board[j][i] == 0){
-				mctx.fillStyle = (col == i) ? "grey" : "white";
+				mctx.fillStyle = (col == i && game.turn == side) ? "grey" : "white";
 			} else if (game.board[j][i] == 1){
 				mctx.fillStyle = colour1;
 			} else {

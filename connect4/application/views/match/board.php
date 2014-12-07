@@ -36,7 +36,7 @@
 	echo form_close();
 	
 ?>
-<p id="statusMsg" name="statusMsg">TEST</p>
+<p id="statusMsg" name="statusMsg"></p>
 <br>
 
 	<div class="gameArea" style="position:relative; width:780px; height:670px">
@@ -112,16 +112,16 @@ $('body').everyTime(2000,function(){
 		if(game.winner == 0){
 			console.log("wtf");
 			if (game.turn == side){
-				$('[name=statusMsg]').val("Select a play");
+				$('[name=statusMsg]').html("Select a play");
 			} else {
-				$('[name=statusMsg]').val("<?=$otherUser->login?>'s turn");
+				$('[name=statusMsg]').html("<?=$otherUser->login?>'s turn");
 			}
 		} else if (game.winner == 3){
-			$('[name=statusMsg]').val("Draw!");
+			$('[name=statusMsg]').html("Draw!");
 		} else if (game.winner == side){
-			$('[name=statusMsg]').val("You win!");
+			$('[name=statusMsg]').html("You win!");
 		} else {
-			$('[name=statusMsg]').val("You lose!");
+			$('[name=statusMsg]').html("You lose!");
 		}
 		var url = "<?= base_url() ?>board/getMsg";
 		$.getJSON(url, function (data,text,jqXHR){
@@ -150,7 +150,7 @@ $('form').submit(function(event){
 		$.post(url,arguments, function (data,textStatus,jqXHR){
 				var conversation = $('[name=conversation]').val();
 				game.winner = data.winner;
-				$('[name=winner]').val(game.winner);
+				$('[name=winner]').html(game.winner);
 				$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 				});
 		$('[name=msg]').val("select play");

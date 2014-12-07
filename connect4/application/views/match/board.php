@@ -55,6 +55,7 @@
 <button id="5" onclick="setCol('5')">SELECT PLAY</button>
 <button id="6" onclick="setCol('6')">SELECT PLAY</button>
 
+<?php echo "<p>".$winner."</p>"?>
 </body>
 
 <script src="<?= base_url() ?>/js/match.js"></script>

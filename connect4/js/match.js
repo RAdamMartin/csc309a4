@@ -29,7 +29,6 @@ function drawPlays(){
 }
 
 function setPlay(play, player){
-	console.log("-->Setting " + play);
 	if (play < 7 && play >= 0 && player == game.turn){
 		if (game.turn == 1){
 			game.turn = 2;

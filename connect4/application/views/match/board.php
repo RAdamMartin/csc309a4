@@ -96,7 +96,6 @@ moves.addEventListener('click', function(event){
 });
 
 if(game.winner == 0){
-	console.log("wtf");
 	if (game.turn == side){
 		$('[name=statusMsg]').html("Select a play");
 	} else {
@@ -111,6 +110,7 @@ if(game.winner == 0){
 }
 
 $('body').everyTime(2000,function(){
+	console.log("winner: " + game.winner);
 	if (status == 'waiting') {
 		$.getJSON('<?= base_url() ?>arcade/checkInvitation',function(data, text, jqZHR){
 				if (data && data.status=='rejected') {
@@ -164,7 +164,9 @@ $('form').submit(function(event){
 		var url = "<?= base_url() ?>board/postMsg";
 		$.post(url,arguments, function (data,textStatus,jqXHR){
 				var conversation = $('[name=conversation]').val();
-				game.winner = data.winner;
+				if (typeof(data.winner)!== 'undefined'){
+					game.winner = data.winner;
+				}
 				$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 				});
 		$('[name=msg]').val("select play");

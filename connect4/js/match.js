@@ -47,14 +47,6 @@ function setPlay(play, player){
 				if (i == 0){
 					document.getElementById(play).disabled = true;
 				}
-				if (game.winner > 0){
-					if (game.turn == side){
-						alert("You Win!");
-					} else {
-						alert("You Lose!");
-					}
-				}
-				break;
 			}
 		}
 	}

@@ -204,13 +204,13 @@ function checkWin($matchHist){
 	for($i = 0; $i < 6; $i++){
 		for ($j = 0; $j < 7; $j++){
 			log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j].', counts:'.$count1.','.$count2);
-			if($p1[i][j] == 1){
+			if($p1[i][j] == '1'){
 				$count1++;
 			} else {
 				$count1 = 0;
 			}
 
-			if($p2[i][j] == 1){
+			if($p2[i][j] == '1'){
 				$count2++;
 			} else {
 				$count2 = 0;

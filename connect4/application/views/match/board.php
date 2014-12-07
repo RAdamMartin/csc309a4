@@ -130,6 +130,7 @@ $('body').everyTime(2000,function(){
 			if (data && data.status=='success') {
 				var conversation = $('[name=conversation]').val();
 				var msg = data.message;
+				console.log("setting winner to "+data.winner);
 				game.winner = data.winner;
 				if (msg!= null && msg.length > 0){
 					console.log("Received: " + msg);

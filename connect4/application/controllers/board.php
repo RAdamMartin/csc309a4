@@ -28,6 +28,7 @@ class Board extends CI_Controller {
 	    	$user = $this->user_model->get($user->login);
 
 	    	$invite = $this->invite_model->get($user->invite_id);
+	    	$data['winner'] = 0;
 	    	
 	    	if ($user->user_status_id == User::WAITING) {
 	    		$invite = $this->invite_model->get($user->invite_id);
@@ -47,6 +48,7 @@ class Board extends CI_Controller {
 	    			$otherUser = $this->user_model->getFromId($match->user1_id);
 	    			$data['side'] = 2;
 	    		}
+	    		$data['winner'] = $match_status_id-1;
 	    	}
 	    	
 	    	$data['user']=$user;

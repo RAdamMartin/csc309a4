@@ -204,9 +204,9 @@ function checkWin($matchHist){
 
 
 	//Rows
-	$count1 = 0;
-	$count2 = 0;
 	for($i = 0; $i < 6; $i++){
+		$count1 = 0;
+		$count2 = 0;
 		for ($j = 0; $j < 7; $j++){
 			log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j].', counts:'.$count1.','.$count2);
 			if($p1[$i][$j] == 1){
@@ -231,9 +231,9 @@ function checkWin($matchHist){
 	}
 
 	//Cols
-	$count1 = 0;
-	$count2 = 0;
 	for($i = 0; $i < 7; $i++){
+		$count1 = 0;
+		$count2 = 0;
 		for ($j = 0; $j < 6; $j++){
 			if($p1[$j][$i] == 1){
 				$count1++;

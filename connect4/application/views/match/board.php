@@ -31,7 +31,7 @@
 	?>
 <input type="hidden" id="msg" type="text" name="msg" value=""></input>
 <?php
-	echo form_submit('Send','Send');
+	echo form_submit('Submit Play','Send');
 
 	echo form_close();
 	

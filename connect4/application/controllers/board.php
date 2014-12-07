@@ -191,11 +191,11 @@ function checkWin($matchHist){
 		$r[$play]++;
 		$turn++;
 	}
-	for ($i =0 $i< 6; $i++){
+	/*for ($i =0 $i< 6; $i++){
 		for ($j=0; $j<7; $j++){
-			//log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j]);
+			log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j]);
 		}
-	}
+	}*/
 
 
 	//Rows

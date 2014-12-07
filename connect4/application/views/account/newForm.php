@@ -48,7 +48,7 @@
 	echo form_error('email');
 	echo form_input('email',set_value('email'),"required");
 ?>
-<img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
+<img id="captcha" src="/connect4/securimage/securimage_show.php" alt="CAPTCHA Image" />
 <input type="text" name="captcha_code" size="10" maxlength="6" />
 <a href="#" onclick="document.getElementById('captcha').src = '/connect4/securimage/securimage_show.php?' + Math.random(); return false">[ Different Image ]</a>
 <?php

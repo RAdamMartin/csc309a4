@@ -124,24 +124,24 @@ $('body').everyTime(2000,function(){
 				
 		});
 	}
-	var url = "<?= base_url() ?>board/getMsg";
-	$.getJSON(url, function (data,text,jqXHR){
-		if (data && data.status=='success') {
-			var conversation = $('[name=conversation]').val();
-			var msg = data.message;
-			game.winner = data.winner;
-			$('[name=winner]').val(game.winner);
-			if (msg!= null && msg.length > 0){
-				console.log("Received: " + msg);
-				$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
-				console.log("setting play for " + other + " in col " + msg);
-				setPlay(parseInt(msg), other);
-				drawPlays();	
+	if (game.winner == 0){
+		var url = "<?= base_url() ?>board/getMsg";
+		$.getJSON(url, function (data,text,jqXHR){
+			if (data && data.status=='success') {
+				var conversation = $('[name=conversation]').val();
+				var msg = data.message;
+				game.winner = data.winner;
+				if (msg!= null && msg.length > 0){
+					console.log("Received: " + msg);
+					$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
+					console.log("setting play for " + other + " in col " + msg);
+					setPlay(parseInt(msg), other);
+					drawPlays();	
+				}
 			}
-		}
-	});
+		});
+	}
 	if(game.winner == 0){
-		console.log("wtf");
 		if (game.turn == side){
 			$('[name=statusMsg]').html("Select a play");
 		} else {
@@ -165,7 +165,6 @@ $('form').submit(function(event){
 		$.post(url,arguments, function (data,textStatus,jqXHR){
 				var conversation = $('[name=conversation]').val();
 				game.winner = data.winner;
-				$('[name=winner]').html(game.winner);
 				$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 				});
 		$('[name=msg]').val("select play");

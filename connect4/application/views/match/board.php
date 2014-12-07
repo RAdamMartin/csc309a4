@@ -55,7 +55,7 @@
 <button id="5" onclick="setCol('5')">SELECT PLAY</button>
 <button id="6" onclick="setCol('6')">SELECT PLAY</button>
 
-<?php echo "<p>".$winner."</p>"?>
+<?php echo "<p id='winner' name='winner'>".$winner."</p>"?>
 </body>
 
 <script src="<?= base_url() ?>/js/match.js"></script>
@@ -83,6 +83,8 @@ var bgrd = document.getElementById("frame");
 var bctx = bgrd.getContext("2d");
 var moves = document.getElementById("plays");
 var mctx = moves.getContext("2d");
+
+var winner = document.getElementById("winner");
 
 bctx.fillStyle = bgrd_col;
 bctx.fillRect(0, 0, bgrd.width, bgrd.height);	
@@ -115,6 +117,7 @@ $('body').everyTime(2000,function(){
 				var conversation = $('[name=conversation]').val();
 				var msg = data.message;
 				game.winner = data.winner;
+				$('[name=winner]').val(game.winner);
 				if (msg!= null && msg.length > 0){
 					console.log("Received: " + msg);
 					$('[name=conversation]').val(conversation + "\n" + otherUser + ": " + msg);
@@ -144,6 +147,7 @@ $('form').submit(function(event){
 		$.post(url,arguments, function (data,textStatus,jqXHR){
 				var conversation = $('[name=conversation]').val();
 				game.winner = data.winner;
+				$('[name=winner]').val(game.winner);
 				$('[name=conversation]').val(conversation + "\n" + user + ": " + msg);
 				});
 		$('[name=msg]').val("select play");

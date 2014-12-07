@@ -105,8 +105,7 @@ class Board extends CI_Controller {
  			array_push($matchHist,$msg);
  			$winner = checkWin($matchHist);
  			if ($winner > 0){
- 				print_r($msg);
-				die();
+ 				log_message('debug','Winner'.$winner);
  				$this->match_model->updateStatus($winner+1);
  			}
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));
@@ -178,6 +177,7 @@ class Board extends CI_Controller {
  }
 
 function checkWin($matchHist){
+	log_message('debug','Checking win');
 	$r = array(0,0,0,0,0,0,0);
 	$p1 = array($r,$r,$r,$r,$r,$r);
 	$p2 = array($r,$r,$r,$r,$r,$r);
@@ -191,10 +191,16 @@ function checkWin($matchHist){
 		$r[$play]++;
 		$turn++;
 	}
-	$count1 = 0;
-	$count2 = 0;
+	for ($i =0 $i< 6; $i++){
+		for ($j=0; $j<7; $j++){
+			log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j]);
+		}
+	}
+
 
 	//Rows
+	$count1 = 0;
+	$count2 = 0;
 	for($i = 0; $i < 6; $i++){
 		for ($j = 0; $j < 7; $j++){
 			if($p1[i][j] == 1){

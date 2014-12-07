@@ -143,10 +143,10 @@ class Board extends CI_Controller {
  		$user = $_SESSION['user'];
  		 
  		$user = $this->user_model->get($user->login);
- 		if ($user->user_status_id != User::PLAYING) {	
+/* 		if ($user->user_status_id != User::PLAYING) {	
  			$errormsg="Not in PLAYING state";
  			goto error;
- 		}
+ 		}*/
  		// start transactional mode  
  		$this->db->trans_begin();
  			

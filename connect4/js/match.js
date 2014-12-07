@@ -43,11 +43,11 @@ function setPlay(play, player){
 				} else {
 					game.board[i][play] = 1
 				}
-				checkWin(i, play);
+				//checkWin(i, play);
 				if (i == 0){
 					document.getElementById(play).disabled = true;
 				}
-				if (game.turn > 2){
+				if (game.winner > 0){
 					if (game.turn == side){
 						alert("You Win!");
 					} else {
@@ -73,7 +73,7 @@ function checkWin(row, col){
 	var below = (col > 0) ? (col - 1) : col;
 	var left = (row > 0) ? (row - 1) : row;
 	var right = (row < 5) ? (row + 1) : row;*/
-
+/*
 	var count = 1;
 	var i = row+1;
 	var j = col+1;
@@ -123,7 +123,7 @@ function checkWin(row, col){
 		}
 	}
 
-	/*var count = 1;
+	var count = 1;
 	var i = row-1;
 	var j = col+1;
 
@@ -168,7 +168,7 @@ function checkWin(row, col){
 				break;
 			}
 		}
-	}*/
+	}
 
 	for (var i = 0; i < 6; i++){
 		for (var j = 0; j < 7; j++){
@@ -213,5 +213,5 @@ function checkWin(row, col){
 				}
 			}
 		}
-	}
+	}*/
 }

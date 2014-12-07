@@ -54,7 +54,6 @@
 <button style="visibility:hidden" id="5" onclick="setCol('5')">SELECT PLAY</button>
 <button style="visibility:hidden" id="6" onclick="setCol('6')">SELECT PLAY</button>
 
-<?php echo "<p id='winner' name='winner'>".$winner."</p>"?>
 </body>
 
 <script src="<?= base_url() ?>/js/match.js"></script>
@@ -132,13 +131,17 @@ $('body').everyTime(2000,function(){
 			} else {
 				$('[name=statusMsg]').val("<?=$otherUser->login?>'s turn");
 			}
-		} else if (game.winner == 4){
+		} else if (game.winner == 3){
 			$('[name=statusMsg]').val("Draw!");
+		} else if (game.winner == side){
+			$('[name=statusMsg]').val("You win!");
+		} else {
+			$('[name=statusMsg]').val("You lose!");
 		}
 });
 
 $('form').submit(function(event){
-	if (game.turn == side){
+	if (game.turn == side && game.winner == 0){
 		var msg = $('[name=msg]').val();
 		setPlay(parseInt(msg), side);
 		var arguments = $(this).serialize();
@@ -154,7 +157,6 @@ $('form').submit(function(event){
 		drawPlays();
 		return false;
 	} else {
-		alert("It is not your turn!");
 		event.preventDefault();
 	}
 });	

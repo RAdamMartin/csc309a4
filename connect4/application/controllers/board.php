@@ -104,8 +104,8 @@ class Board extends CI_Controller {
  			}
  			array_push($matchHist,$msg);
  			$winner = checkWin($matchHist);
+ 			log_message('debug','[Winner'.$winner);
  			if ($winner > 0){
- 				log_message('debug','Winner'.$winner);
  				$this->match_model->updateStatus($winner+1);
  			}
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));
@@ -177,7 +177,7 @@ class Board extends CI_Controller {
  }
 
 function checkWin($matchHist){
-	log_message('debug','Checking win');
+	log_message('debug','[Checking win');
 	$r = array(0,0,0,0,0,0,0);
 	$p1 = array($r,$r,$r,$r,$r,$r);
 	$p2 = array($r,$r,$r,$r,$r,$r);

@@ -25,7 +25,7 @@
 	?>
 	</div>
 
-<textarea style="visibility:hidden" name="conversation" cols="40" rows="10" ></textarea>
+<textarea style="visibility:hidden" name="conversation" cols="1" rows="1" ></textarea>
 <?php 
 	echo form_open();
 	?>

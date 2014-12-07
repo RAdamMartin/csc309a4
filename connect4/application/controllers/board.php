@@ -161,7 +161,7 @@ class Board extends CI_Controller {
  		// if all went well commit changes
  		$this->db->trans_commit();
  		
- 		echo json_encode(array('status'=>'success','message'=>$msg, 'winner'=>$match->$match_status_id-1));
+ 		echo json_encode(array('status'=>'success','message'=>$msg, 'winner'=>$match->match_status_id-1));
 		return;
 		
 		transactionerror:

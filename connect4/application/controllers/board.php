@@ -204,13 +204,13 @@ function checkWin($matchHist){
 	for($i = 0; $i < 6; $i++){
 		for ($j = 0; $j < 7; $j++){
 			log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j].', counts:'.$count1.','.$count2);
-			if($p1[i][j] == '1'){
+			if($p1[$i][$j] == 1){
 				$count1++;
 			} else {
 				$count1 = 0;
 			}
 
-			if($p2[i][j] == '1'){
+			if($p2[$i][$j] == 1){
 				$count2++;
 			} else {
 				$count2 = 0;
@@ -228,13 +228,13 @@ function checkWin($matchHist){
 	$count2 = 0;
 	for($i = 0; $i < 7; $i++){
 		for ($j = 0; $j < 6; $j++){
-			if($p1[j][i] == 1){
+			if($p1[$j][$i] == 1){
 				$count1++;
 			} else {
 				$count1 = 0;
 			}
 
-			if($p2[j][i] == 1){
+			if($p2[$j][$i] == 1){
 				$count2++;
 			} else {
 				$count2 = 0;
@@ -250,16 +250,16 @@ function checkWin($matchHist){
 	//SW-NE diag
 	for($i = 0; $i < 3; $i++){
 		for ($j = 0; $j < 4; $j++){
-			if ($p1[i][j] == 1 &&
-				$p1[i+1][j+1] == 1 &&
-				$p1[i+2][j+2] == 1 &&
-				$p1[i+3][j+3] == 1){
+			if ($p1[$i][$j] == 1 &&
+				$p1[$i+1][$j+1] == 1 &&
+				$p1[$i+2][$j+2] == 1 &&
+				$p1[$i+3][$j+3] == 1){
 				return 1;
 			} 
-			if ($p2[i][j] == 1 &&
-				$p2[i+1][j+1] == 1 &&
-				$p2[i+2][j+2] == 1 &&
-				$p2[i+3][j+3] == 1){
+			if ($p2[$i][$j] == 1 &&
+				$p2[$i+1][$j+1] == 1 &&
+				$p2[$i+2][$j+2] == 1 &&
+				$p2[$i+3][$j+3] == 1){
 				return 2;
 			} 
 		}
@@ -268,16 +268,16 @@ function checkWin($matchHist){
 	//NW-SE diag
 	for($i = 5; $i > 2; $i--){
 		for ($j = 0; $j < 4; $j++){
-			if ($p1[i][j] == 1 &&
-				$p1[i-1][j+1] == 1 &&
-				$p1[i-2][j+2] == 1 &&
-				$p1[i-3][j+3] == 1){
+			if ($p1[$i][$j] == 1 &&
+				$p1[$i-1][$j+1] == 1 &&
+				$p1[$i-2][$j+2] == 1 &&
+				$p1[$i-3][$j+3] == 1){
 				return 1;
 			} 
-			if ($p2[i][j] == 1 &&
-				$p2[i-1][j+1] == 1 &&
-				$p2[i-2][j+2] == 1 &&
-				$p2[i-3][j+3] == 1){
+			if ($p2[$i][$j] == 1 &&
+				$p2[$i-1][$j+1] == 1 &&
+				$p2[$i-2][$j+2] == 1 &&
+				$p2[$i-3][$j+3] == 1){
 				return 2;
 			} 
 		}

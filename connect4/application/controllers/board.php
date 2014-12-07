@@ -103,7 +103,6 @@ class Board extends CI_Controller {
  			array_push($matchHist,$msg);
  			//$winner = checkWin($matchHist);
  			if ($winner > 0){
- 				log_message("Winner".winner);
  				$this->match_model->updateStatus($winner+1);
  			}
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));

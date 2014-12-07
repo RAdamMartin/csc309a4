@@ -177,7 +177,7 @@ class Board extends CI_Controller {
  }
 
 function checkWin($matchHist){
-	//log_message('debug','Checking win');
+	log_message('debug','Checking win');
 	$r = array(0,0,0,0,0,0,0);
 	$p1 = array($r,$r,$r,$r,$r,$r);
 	$p2 = array($r,$r,$r,$r,$r,$r);
@@ -203,6 +203,7 @@ function checkWin($matchHist){
 	$count2 = 0;
 	for($i = 0; $i < 6; $i++){
 		for ($j = 0; $j < 7; $j++){
+			log_message('debug', '['.$i.']['.$j.'] : '.$p1[$i][$j].', '.$p2[$i][$j]);
 			if($p1[i][j] == 1){
 				$count1++;
 			} else {

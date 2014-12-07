@@ -25,9 +25,8 @@
 	?>
 	</div>
 
+<textarea style="visibility:hidden" name="conversation" cols="40" rows="10" ></textarea>
 <?php 
-	echo form_textarea('conversation');
-	
 	echo form_open();
 	?>
 <input type="hidden" id="msg" type="text" name="msg" value=""></input>

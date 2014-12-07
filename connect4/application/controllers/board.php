@@ -48,7 +48,7 @@ class Board extends CI_Controller {
 	    			$otherUser = $this->user_model->getFromId($match->user1_id);
 	    			$data['side'] = 2;
 	    		}
-	    		$data['winner'] = $match_status_id-1;
+	    		$data['winner'] = $match->match_status_id-1;
 	    	}
 	    	
 	    	$data['user']=$user;

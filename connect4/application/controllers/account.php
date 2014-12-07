@@ -76,7 +76,7 @@ class Account extends CI_Controller {
 	    	$this->form_validation->set_rules('first', 'First', "required");
 	    	$this->form_validation->set_rules('last', 'last', "required");
 	    	$this->form_validation->set_rules('email', 'Email', "required|is_unique[user.email]");
-	    	$inputCode = $this->input->post('imagecode');
+	    	$inputCode = $this->input->post('captcha_code');
 	    	include_once 'securimage/securimage.php';
 	    	$securimage = new Securimage();
 	    

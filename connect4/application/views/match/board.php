@@ -109,6 +109,19 @@ $('body').everyTime(2000,function(){
 					
 			});
 		}
+		if(game.winner == 0){
+			if (game.turn == side){
+				$('[name=statusMsg]').val("Select a play");
+			} else {
+				$('[name=statusMsg]').val("<?=$otherUser->login?>'s turn");
+			}
+		} else if (game.winner == 3){
+			$('[name=statusMsg]').val("Draw!");
+		} else if (game.winner == side){
+			$('[name=statusMsg]').val("You win!");
+		} else {
+			$('[name=statusMsg]').val("You lose!");
+		}
 		var url = "<?= base_url() ?>board/getMsg";
 		$.getJSON(url, function (data,text,jqXHR){
 			if (data && data.status=='success') {
@@ -125,19 +138,6 @@ $('body').everyTime(2000,function(){
 				}
 			}
 		});
-		if(game.winner == 0){
-			if (game.turn == side){
-				$('[name=statusMsg]').val("Select a play");
-			} else {
-				$('[name=statusMsg]').val("<?=$otherUser->login?>'s turn");
-			}
-		} else if (game.winner == 3){
-			$('[name=statusMsg]').val("Draw!");
-		} else if (game.winner == side){
-			$('[name=statusMsg]').val("You win!");
-		} else {
-			$('[name=statusMsg]').val("You lose!");
-		}
 });
 
 $('form').submit(function(event){

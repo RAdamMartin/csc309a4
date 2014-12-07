@@ -221,8 +221,10 @@ function checkWin($matchHist){
 				$count2 = 0;
 			}
 			if ($count1 == 4){
+				log_message('debug', '[1win at row ending at ['.$i.']['.$j.']');
 				return 1;
 			} else if ($count2 == 4){
+				log_message('debug', '[2win at row ending at ['.$i.']['.$j.']');
 				return 2;
 			}
 		}
@@ -245,8 +247,10 @@ function checkWin($matchHist){
 				$count2 = 0;
 			}
 			if ($count1 == 4){
+				log_message('debug', '[1win at col ending at ['.$j.']['.$i.']');
 				return 1;
 			} else if ($count2 == 4){
+				log_message('debug', '[2win at col ending at ['.$j.']['.$i.']');
 				return 2;
 			}
 		}
@@ -259,12 +263,14 @@ function checkWin($matchHist){
 				$p1[$i+1][$j+1] == 1 &&
 				$p1[$i+2][$j+2] == 1 &&
 				$p1[$i+3][$j+3] == 1){
+				log_message('debug', '[1win at SW-NE diag ending at ['.$i.']['.$j.']');
 				return 1;
 			} 
 			if ($p2[$i][$j] == 1 &&
 				$p2[$i+1][$j+1] == 1 &&
 				$p2[$i+2][$j+2] == 1 &&
 				$p2[$i+3][$j+3] == 1){
+				log_message('debug', '[2win at SW-NE diag ending at ['.$i.']['.$j.']');
 				return 2;
 			} 
 		}
@@ -277,12 +283,14 @@ function checkWin($matchHist){
 				$p1[$i-1][$j+1] == 1 &&
 				$p1[$i-2][$j+2] == 1 &&
 				$p1[$i-3][$j+3] == 1){
+				log_message('debug', '[1win at NW-SE diag ending at ['.$i.']['.$j.']');
 				return 1;
 			} 
 			if ($p2[$i][$j] == 1 &&
 				$p2[$i-1][$j+1] == 1 &&
 				$p2[$i-2][$j+2] == 1 &&
 				$p2[$i-3][$j+3] == 1){
+				log_message('debug', '[2win at NW-SE diag ending at ['.$i.']['.$j.']');
 				return 2;
 			} 
 		}

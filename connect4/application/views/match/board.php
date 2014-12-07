@@ -47,13 +47,13 @@
 
 	<br>
 
-<button type="hidden" id="0" onclick="setCol('0')">SELECT PLAY</button>
-<button type="hidden" id="1" onclick="setCol('1')">SELECT PLAY</button>
-<button type="hidden" id="2" onclick="setCol('2')">SELECT PLAY</button>
-<button type="hidden" id="3" onclick="setCol('3')">SELECT PLAY</button>
-<button type="hidden" id="4" onclick="setCol('4')">SELECT PLAY</button>
-<button type="hidden" id="5" onclick="setCol('5')">SELECT PLAY</button>
-<button type="hidden" id="6" onclick="setCol('6')">SELECT PLAY</button>
+<button visibility="hidden" id="0" onclick="setCol('0')">SELECT PLAY</button>
+<button visibility="hidden" id="1" onclick="setCol('1')">SELECT PLAY</button>
+<button visibility="hidden" id="2" onclick="setCol('2')">SELECT PLAY</button>
+<button visibility="hidden" id="3" onclick="setCol('3')">SELECT PLAY</button>
+<button visibility="hidden" id="4" onclick="setCol('4')">SELECT PLAY</button>
+<button visibility="hidden" id="5" onclick="setCol('5')">SELECT PLAY</button>
+<button visibility="hidden" id="6" onclick="setCol('6')">SELECT PLAY</button>
 
 <?php echo "<p id='winner' name='winner'>".$winner."</p>"?>
 </body>

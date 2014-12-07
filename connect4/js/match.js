@@ -47,6 +47,7 @@ function setPlay(play, player){
 				if (i == 0){
 					document.getElementById(play).disabled = true;
 				}
+				break;
 			}
 		}
 	}

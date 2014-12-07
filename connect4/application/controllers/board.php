@@ -107,7 +107,7 @@ class Board extends CI_Controller {
  			log_message('debug','[Winner'.$winner);
  			if ($winner > 0){
  				log_message('debug','[setting winner'.$winner);
- 				//$this->match_model->updateStatus($winner+1);
+ 				$this->match_model->updateStatus($winner+1);
  				log_message('debug','[set winner'.$winner);
  			}
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));

@@ -110,6 +110,7 @@ $('body').everyTime(2000,function(){
 			});
 		}
 		if(game.winner == 0){
+			console.log("wtf");
 			if (game.turn == side){
 				$('[name=statusMsg]').val("Select a play");
 			} else {

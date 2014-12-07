@@ -101,10 +101,10 @@ class Board extends CI_Controller {
  				goto transactionerror;
  			}
  			array_push($matchHist,$msg);
- 			//$winner = checkWin($matchHist);
- 			/*if ($winner > 0){
+ 			$winner = checkWin($matchHist);
+ 			if ($winner > 0){
  				$this->match_model->updateStatus($winner+1);
- 			}*/
+ 			}
  			$this->match_model->updateBoardState($match->id, serialize($matchHist));
 	 		if ($this->db->trans_status() === FALSE) {
 	 			$errormsg = "Transaction error";
@@ -174,7 +174,7 @@ class Board extends CI_Controller {
  }
 
 function checkWin($matchHist){
-	/*$r = array(0,0,0,0,0,0,0);
+	$r = array(0,0,0,0,0,0,0);
 	$p1 = array($r,$r,$r,$r,$r,$r);
 	$p2 = array($r,$r,$r,$r,$r,$r);
 	$turn = 1;
@@ -276,5 +276,5 @@ function checkWin($matchHist){
 		return 3;
 	} else{
 		return 0;
-	}*/return 0;
+	}
 }
